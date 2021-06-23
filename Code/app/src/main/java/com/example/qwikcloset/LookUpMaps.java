@@ -17,7 +17,7 @@ public class LookUpMaps {
         return clothing[generalCategory][subCategory][clothingType];
     }
 
-    static int[] reverseMap(String clothingName){
+    static int[] reverseMap(String  clothingName){
         HashMap<String, Integer[]> reverseMap = new HashMap<String, Integer[]>();
         int[] temp = {0};
         for(int i = 0; i < clothing.length; ++i){
