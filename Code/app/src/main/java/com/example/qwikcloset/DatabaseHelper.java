@@ -33,7 +33,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_1 + " ( Top_ID INTERGER PRIMARY KEY AUTOINCREMENT, Top_Name TEXT, Crop_Top BOOLEAN, TShirt BOOLEAN, TankTop BOOLEAN, Long_Sleeve_Flannel BOOLEAN, Collared_Shirt BOOLEAN, Dress_Shirt_Blouse BOOLEAN, Long_Dress BOOLEAN, Medium_Dress BOOLEAN, Short_Dress BOOLEAN, Shirt BOOLEAN, Dress BOOLEAN, BottomsRequired BOOLEAN)");
+        db.execSQL("CREATE TABLE " + TABLE_1 + " (Top_ID INTERGER PRIMARY KEY AUTOINCREMENT, Top_Name TEXT, Crop_Top BOOLEAN, TShirt BOOLEAN, TankTop BOOLEAN, Long_Sleeve_Flannel BOOLEAN, Collared_Shirt BOOLEAN, Dress_Shirt_Blouse BOOLEAN, Long_Dress BOOLEAN, Medium_Dress BOOLEAN, Short_Dress BOOLEAN, Shirt BOOLEAN, Dress BOOLEAN, BottomsRequired BOOLEAN)");
 
     }
 
