@@ -1,5 +1,7 @@
 package com.example.qwikcloset;
 
+import android.util.Log;
+
 import java.util.HashMap;
 
 public class LookUpMaps{
@@ -45,5 +47,4 @@ public class LookUpMaps{
         int[] output = new int[]{unfilteredOutput[0].intValue(), unfilteredOutput[1].intValue(), unfilteredOutput[2].intValue()};
         return output;
     }
-
 }
