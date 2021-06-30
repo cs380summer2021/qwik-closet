@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.app.ProgressDialog;
 import android.widget.TableLayout;
 
-public class SecondView extends AppCompatActivity {
+public class ClosetView extends AppCompatActivity {
     private TableLayout mTableLayout;
     ProgressDialog mProgressBar;
     @Override

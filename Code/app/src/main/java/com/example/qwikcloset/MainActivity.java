@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void toSecondView(View view) {
         Intent intentMain = new Intent(this ,
-                com.example.qwikcloset.SecondView.class);
+                com.example.qwikcloset.ClosetView.class);
         this.startActivity(intentMain);
     }
 
