@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_1 = "Clothing_table";
     public static final String TABLE_2 = "Outfit_table";
 
-    public void updatePicture(long rowID, File file, String column, String url){
+    public static void updatePicture(long rowID, File file, String column, String url){
         String updateSQL = "UPDATE " + TABLE_1 + " " + "SET " + column + " = ? " + "WHERE id=?";
 
         try{
@@ -52,7 +52,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return conn;
     }
 
-    private byte[] readFile(File file){
+    private static byte[] readFile(File file){
         ByteArrayOutputStream bos = null;
         try{
             FileInputStream fis = new FileInputStream(file);

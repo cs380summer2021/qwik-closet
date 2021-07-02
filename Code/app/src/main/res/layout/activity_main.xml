@@ -4,4 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"/>
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textview_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        android:textSize="50sp" />
+
+    <Button
+        android:id="@+id/button_decrease"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textview_amount"
+        android:layout_alignTop="@+id/textview_amount"
+        android:layout_toStartOf="@+id/textview_amount"
+        android:text="-"
+        android:layout_toLeftOf="@+id/textview_amount" />
+
+    <Button
+        android:id="@+id/button_increase"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textview_amount"
+        android:layout_alignTop="@+id/textview_amount"
+        android:layout_toRightOf="@+id/textview_amount"
+        android:text="+" />
+
+    <Button
+        android:id="@+id/button_doThings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="124dp"
+        android:text="Do things" />
+
+
+</RelativeLayout>
