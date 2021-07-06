@@ -2,6 +2,7 @@ package com.example.qwikcloset;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -133,5 +134,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         else
             return true;
+    }
+
+    public Cursor getAllData_Clothing() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor result = db.rawQuery("SELECT * FROM " + TABLE_1, null);
+        return result;
+    }
+
+    public boolean updateData_Outfit(String id, int tops, int bottoms, int shoes, int acc1, int acc2, int acc3,  String mood, String weather, String task, String color, int rating, boolean saved ){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("ID", id);
+        contentValues.put("Top", tops);
+        contentValues.put("Bottom", bottoms);
+        contentValues.put("Shoes", shoes);
+        contentValues.put("ACC1", acc1);
+        contentValues.put("ACC2", acc2);
+        contentValues.put("ACC3", acc3);
+        contentValues.put("Mood", mood);
+        contentValues.put("Weather", weather);
+        contentValues.put("Task", task);
+        contentValues.put("Color", color);
+        contentValues.put("Rating", rating);
+        contentValues.put("Saved", saved);
+        db.update(TABLE_2, contentValues, "ID = ?", new String[] { id });
+        return true;
     }
 }
