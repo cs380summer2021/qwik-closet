@@ -180,9 +180,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Integer deleteData_Clothing(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_1, "ID = ?", new String[] { id });
 
     }
     public Integer deleteData_Outfit(String id){
-
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_2, "ID = ?", new String[] { id });
     }
 }
