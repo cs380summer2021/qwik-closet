@@ -141,6 +141,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor result = db.rawQuery("SELECT * FROM " + TABLE_1, null);
         return result;
     }
+    public Cursor getSpecificData_Clothing(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor result = db.rawQuery("SELECT * FROM " + TABLE_1 + " WHERE id = ?", new String[] { id });
+        return result;
+    }
+
+    public Cursor getAllData_Outfit() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor result = db.rawQuery("SELECT * FROM " + TABLE_2, null);
+        return result;
+    }
+
+    public Cursor getSpecificData_Outfit(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor result = db.rawQuery("SELECT * FROM " + TABLE_2 + " WHERE id = ?", new String[] { id });
+        return result;
+    }
 
     public boolean updateData_Outfit(String id, int tops, int bottoms, int shoes, int acc1, int acc2, int acc3,  String mood, String weather, String task, String color, int rating, boolean saved ){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -160,5 +177,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("Saved", saved);
         db.update(TABLE_2, contentValues, "ID = ?", new String[] { id });
         return true;
+    }
+
+    public Integer deleteData_Clothing(String id){
+
+    }
+    public Integer deleteData_Outfit(String id){
+
     }
 }
