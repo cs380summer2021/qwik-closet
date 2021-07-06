@@ -73,7 +73,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase();
     }
 
     @Override
@@ -90,7 +89,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertData(int category, int subcategory, int specificCategory, String mood, String weather, String task, String color, File picture) {
+    public boolean insertData_Clothing(String category, String subcategory, String specificCategory, String mood, String weather, String task, String color, File picture) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("Category", category);
@@ -106,7 +105,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String url = "/data/data/com.example.qwikcloset/databases/Clothing.db";
 
         updatePicture(result, picture, "Image", url);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
 
-        return true;
+    public boolean insertData_Outfit(int tops, int bottoms, int shoes, int acc1, int acc2, int acc3,  String mood, String weather, String task, String color, int rating, boolean saved) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Top", tops);
+        contentValues.put("Bottom", bottoms);
+        contentValues.put("Shoes", shoes);
+        contentValues.put("ACC1", acc1);
+        contentValues.put("ACC2", acc2);
+        contentValues.put("ACC3", acc3);
+        contentValues.put("Mood", mood);
+        contentValues.put("Weather", weather);
+        contentValues.put("Task", task);
+        contentValues.put("Color", color);
+        contentValues.put("Rating", rating);
+        contentValues.put("Saved", saved);
+
+        long result = db.insert(TABLE_2, null, contentValues);
+
+        if(result == -1)
+            return false;
+        else
+            return true;
     }
 }
