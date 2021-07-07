@@ -133,13 +133,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("Weather", weather);
         contentValues.put("Task", task);
         contentValues.put("Color", color);
-
-        //I feel as though we need to get the actual row number as an int instead of a long.
-        long result = db.insert(TABLE_1, null, contentValues);
-        String url = "/data/data/com.example.qwikcloset/databases/Clothing.db";
-
         byte[] image = insertImg(picture);
         contentValues.put("Picture", image);
+        //I feel as though we need to get the actual row number as an int instead of a long.
+        long result = db.insert(TABLE_1, null, contentValues);
 
         if(result == -1)
             return false;
