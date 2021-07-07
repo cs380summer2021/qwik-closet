@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import androidx.annotation.Nullable;
 
@@ -40,6 +43,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
+    }
+
+    public byte[] insertImg(Bitmap img ) {
+
+
+        byte[] data = getBitmapAsByteArray(img); // this is a function
+        return data;
+    }
+
+    public static byte[] getBitmapAsByteArray(Bitmap bitmap) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream);
+        return outputStream.toByteArray();
+    }
+
+    public Bitmap getImage(int i){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String qu = "select img  from " + TABLE_1 + " where feedid =" + i ;
+        Cursor cur = db.rawQuery(qu, null);
+
+        if (cur.moveToFirst()){
+            byte[] imgByte = cur.getBlob(0);
+            cur.close();
+            return BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
+        }
+        if (cur != null && !cur.isClosed()) {
+            cur.close();
+        }
+
+        return null;
     }
 
     public static Connection connect(String url){
@@ -78,7 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_1 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Category TEXT, Sub_Category TEXT , Specific_Category TEXT, Mood TEXT, Weather TEXT, Task TEXT, Color TEXT, Image BLOB)");
+        db.execSQL("CREATE TABLE " + TABLE_1 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Category TEXT, Sub_Category TEXT , Specific_Category TEXT, Mood TEXT, Weather TEXT, Task TEXT, Color TEXT, Picture BLOB)");
         db.execSQL("CREATE TABLE " + TABLE_2 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Tops INTEGER, Bottoms INTEGER, Shoes INTEGER, ACC1 INTEGER, ACC2 INTEGER, ACC3 INTEGER, Mood TEXT, Weather TEXT, Task TEXT, Color TEXT, Rating INTEGER, Saved BOOLEAN)");
     }
 
@@ -90,7 +123,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertData_Clothing(String category, String subcategory, String specificCategory, String mood, String weather, String task, String color, File picture) {
+    public boolean insertData_Clothing(String category, String subcategory, String specificCategory, String mood, String weather, String task, String color, Bitmap picture) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("Category", category);
@@ -105,7 +138,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result = db.insert(TABLE_1, null, contentValues);
         String url = "/data/data/com.example.qwikcloset/databases/Clothing.db";
 
-        updatePicture(result, picture, "Image", url);
+        byte[] image = insertImg(picture);
+        contentValues.put("Picture", image);
+
         if(result == -1)
             return false;
         else
