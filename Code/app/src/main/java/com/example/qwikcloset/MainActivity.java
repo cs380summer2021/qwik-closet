@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         //Make sure to include a break after each case.
         switch (mAmount){
             case 0:
-                int[] clothingType = LookUpMaps.map("T-shirt");
                 String fileName = "Tit.jpg";
                 String stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+fileName;
                 Bitmap bitmap = BitmapFactory.decodeFile(stringFilePath);
