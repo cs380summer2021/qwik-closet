@@ -1,12 +1,22 @@
 package com.example.qwikcloset;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
     DatabaseHelper myDb;
@@ -17,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myDb = new DatabaseHelper(this);
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
         mTextViewAmount = findViewById(R.id.textview_amount);
         Button buttonIncrease = findViewById(R.id.button_increase);
@@ -64,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         switch (mAmount){
             case 0:
                 int[] clothingType = LookUpMaps.map("T-shirt");
+                String fileName = "Tit.jpg";
+                String stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+fileName;
+                Bitmap bitmap = BitmapFactory.decodeFile(stringFilePath);
+                myDb.insertData_Clothing("1", "1", "1", "sad", "clear", "work", "bird", bitmap);
                 break;
             default:
                 break;
