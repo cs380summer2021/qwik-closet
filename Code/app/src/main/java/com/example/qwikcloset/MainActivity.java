@@ -3,6 +3,11 @@ package com.example.qwikcloset;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -14,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -84,4 +90,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    public void toSecondView(View view) {
+        Intent intentMain = new Intent(this ,
+                com.example.qwikcloset.ClosetView.class);
+        this.startActivity(intentMain);
+    }
+
+
 }
