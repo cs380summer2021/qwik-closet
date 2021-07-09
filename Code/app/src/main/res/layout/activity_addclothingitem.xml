@@ -19,6 +19,14 @@
         android:text="Item Name: "
         android:textSize="24sp" />
 
+    <EditText
+        android:id="@+id/enterOutfitName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Item Name"
+        android:inputType="textPersonName" />
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,13 +38,7 @@
             android:orientation="vertical" >
 
 
-            <EditText
-                android:id="@+id/enterOutfitName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Enter Item Name"
-                android:inputType="textPersonName" />
+
 
             <Button
         android:id="@+id/clothingImageToUpload"
