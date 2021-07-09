@@ -13,7 +13,7 @@
     tools:context=".ClothingItemView">
 
     <TextView
-        android:id="@+id/itemTitle"
+        android:id="@+id/outfitTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tie Dye Dress"
@@ -29,14 +29,14 @@
         tools:srcCompat="@mipmap/tiedye" />
 
     <TextView
-        android:id="@+id/clothingType"
+        android:id="@+id/outfitTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:rotation="0"
         android:text="Clothing Type: Dress" />
 
     <TextView
-        android:id="@+id/clothingColor"
+        android:id="@+id/outfitBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Clothing Color: Blue and Pink" />
