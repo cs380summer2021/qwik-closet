@@ -293,8 +293,11 @@
                 android:rotation="0"
                 android:rotationX="0"
                 android:rotationY="0"
-                android:text="Save Item"
-                app:backgroundTint="#BA2A2A" />
+                android:shadowColor="#3F51B5"
+                android:shadowDx="5"
+                android:text="Save Outfit"
+                android:textColor="#3F51B5"
+                app:backgroundTint="#FDFCFC" />
 </LinearLayout>
 
     </ScrollView>
