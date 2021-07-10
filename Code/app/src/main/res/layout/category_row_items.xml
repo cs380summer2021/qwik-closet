@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
     android:background="#0F171E"
-    android:layout_marginLeft="16dp">
+    android:layout_marginLeft="16dp"
+    android:id="@+id/category_row_items">
 
     <androidx.cardview.widget.CardView
         android:layout_width="180dp"
@@ -24,6 +25,21 @@
             android:id="@+id/item_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:ignore="VectorDrawableCompat" />
+
+        <Button
+            android:id="@+id/goToClothingViewButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:visibility="gone"
+            app:backgroundTint="#00FFFFFF"
+            app:iconTint="#00FFFFFF"
+            android:text=""
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

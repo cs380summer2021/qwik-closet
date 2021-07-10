@@ -169,10 +169,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<ClothingItem> list = readClothingCursor(cursor, context);
         return list;
     }
-    public Cursor getSpecificData_Clothing(String category) {
+    public ClothingItem getSpecificData_Clothing(String id, Context context) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor result = db.rawQuery("SELECT * FROM " + TABLE_1 + " WHERE category = ?", new String[] { category });
-        return result;
+        Cursor result = db.rawQuery("SELECT * FROM " + TABLE_1 + " WHERE id = ?", new String[] { id });
+        ArrayList<ClothingItem> list = readClothingCursor(result, context);
+        if(list.size() > 0){
+            return list.get(0);
+        }
+        return null;
     }
 
     /*public CategoryItem getCategoryItem(Cursor cursor){

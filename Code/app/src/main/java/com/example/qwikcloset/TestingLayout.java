@@ -79,25 +79,28 @@ public class TestingLayout extends AppCompatActivity {
                 myDb.insertData_Clothing("1", "1", "1", "sad", "clear", "work", "bird", bitmap);
                 break;
             case 1:
-                fileName = "Tit.jpg";
+                fileName = "Booby.jpg";
                 stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+fileName;
                 bitmap = BitmapFactory.decodeFile(stringFilePath);
                 myDb.insertData_Clothing("2", "1", "1", "sad", "clear", "work", "bird", bitmap);
                 break;
             case 2:
-                fileName = "Tit.jpg";
+                fileName = "Nuthatch.jpg";
                 stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+fileName;
                 bitmap = BitmapFactory.decodeFile(stringFilePath);
                 myDb.insertData_Clothing("3", "1", "1", "sad", "clear", "work", "bird", bitmap);
                 break;
             case 3:
-                fileName = "Tit.jpg";
+                fileName = "Penguin.jpg";
                 stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+fileName;
                 bitmap = BitmapFactory.decodeFile(stringFilePath);
                 myDb.insertData_Clothing("4", "1", "1", "sad", "clear", "work", "bird", bitmap);
                 break;
             case 4:
-                myDb.getAllData_Clothing(this);
+                fileName = "Penguin.jpg";
+                stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+fileName;
+                bitmap = BitmapFactory.decodeFile(stringFilePath);
+                myDb.insertData_Clothing("2", "1", "1", "sad", "clear", "work", "bird", bitmap);
                 break;
             case 5:
                 Intent intent = new Intent(TestingLayout.this,

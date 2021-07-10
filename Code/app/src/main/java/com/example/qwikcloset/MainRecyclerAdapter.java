@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -47,6 +48,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
         TextView categoryTitle;
         RecyclerView itemRecycler;
+        ConstraintLayout parentView;
 
 
 
@@ -56,6 +58,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
             categoryTitle = itemView.findViewById(R.id.cat_title);
             itemRecycler = itemView.findViewById(R.id.item_recyler);
+            parentView = itemView.findViewById(R.id.scrollable_view);
 
 
         }
