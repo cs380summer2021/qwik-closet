@@ -13,6 +13,9 @@ public class ClothingItem {
     String color;
     Drawable picture;
 
+    public ClothingItem(){
+
+    }
     public ClothingItem(int id, String category, String subCategory, String specificCategory, String mood, String weather, String task, String color, Drawable picture){
         this.id = id;
         this.category = category;

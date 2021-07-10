@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 
 import androidx.annotation.Nullable;
 
@@ -19,29 +20,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Clothing.db";
     public static final String TABLE_1 = "Clothing_table";
     public static final String TABLE_2 = "Outfit_table";
-
-    public static void updatePicture(long rowID, File file, String column, String url){
-        String updateSQL = "UPDATE " + TABLE_1 + " " + "SET " + column + " = ? " + "WHERE id=?";
-
-        try{
-            Connection conn = connect(url);
-            PreparedStatement pstmt = conn.prepareStatement(updateSQL);
-
-            pstmt.setBytes(1, readFile(file));
-            pstmt.setLong(2, rowID);
-
-            pstmt.executeUpdate();
-            System.out.println("Stored the picture in the BLOB column.");
-
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
-    }
 
     public byte[] insertImg(Bitmap img ) {
 
@@ -166,10 +150,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public Cursor getAllData_Clothing() {
+    public ArrayList<ClothingItem> getAllData_Clothing() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor result = db.rawQuery("SELECT * FROM " + TABLE_1, null);
-        return result;
+        ArrayList<ClothingItem> list = new ArrayList<ClothingItem>();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_1, null);
+
+        if(cursor.moveToFirst()){
+            while(!cursor.isAfterLast()){
+                int id = cursor.getInt(cursor.getColumnIndex("ID"));
+                String category = cursor.getString(cursor.getColumnIndex("Category"));
+                String subCategory = cursor.getString(cursor.getColumnIndex("Sub_Category"));
+                String specificCategory = cursor.getString(cursor.getColumnIndex("Specific_Category"));
+                String mood = cursor.getString(cursor.getColumnIndex("Mood"));
+                String weather = cursor.getString(cursor.getColumnIndex("Weather"));
+                String task = cursor.getString(cursor.getColumnIndex("Task"));
+                String color = cursor.getString(cursor.getColumnIndex("Color"));
+                byte[] bytes = cursor.getBlob(cursor.getColumnIndex("Picture"));
+
+
+                cursor.moveToNext();
+            }
+        }
+        return new ArrayList<ClothingItem>();
     }
     public Cursor getSpecificData_Clothing(String category) {
         SQLiteDatabase db = this.getWritableDatabase();

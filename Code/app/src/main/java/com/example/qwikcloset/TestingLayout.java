@@ -97,6 +97,9 @@ public class TestingLayout extends AppCompatActivity {
                 myDb.insertData_Clothing("4", "1", "1", "sad", "clear", "work", "bird", bitmap);
                 break;
             case 4:
+                myDb.getAllData_Clothing();
+                break;
+            case 5:
                 Intent intent = new Intent(TestingLayout.this,
                         ClosetView.class);
                 startActivity(intent);
