@@ -2,10 +2,12 @@ package com.example.qwikcloset;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -35,6 +37,17 @@ public class CategoryItemRecyclerAdapter extends RecyclerView.Adapter<CategoryIt
     @Override
     public void onBindViewHolder(@NonNull  CategoryItemRecyclerAdapter.CategoryItemViewHolder holder, int position) {
         holder.itemImage.setImageDrawable(categoryItemList.get(position).getImageUrl());
+        holder.itemImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ClothingItemView.class);
+                int j = position;
+                List<CategoryItem> list = categoryItemList;
+                CategoryItem categoryItem = categoryItemList.get(position);
+                intent.putExtra("id", categoryItemList.get(position).itemId.toString());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -44,7 +57,7 @@ public class CategoryItemRecyclerAdapter extends RecyclerView.Adapter<CategoryIt
 
     public static final class CategoryItemViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView itemImage;
+        ImageButton itemImage;
         RelativeLayout parentLayout;
         Button button;
 
@@ -52,9 +65,6 @@ public class CategoryItemRecyclerAdapter extends RecyclerView.Adapter<CategoryIt
             super(itemView);
 
             itemImage = itemView.findViewById(R.id.item_image);
-
-            button = itemView.findViewById(R.id.goToClothingViewButton);
-            //button.setText();
         }
     }
 }

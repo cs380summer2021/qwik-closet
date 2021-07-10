@@ -5,14 +5,14 @@ import android.util.Log;
 import java.util.HashMap;
 
 public class LookUpMaps{
-    static String[] shirts = {"Crop top", "T-shirt", "Tank top", "Long-sleeve shirt", "Polo", "Dress Shirt"};
+    static String[] shirts = {"Crop Top", "T-Shirt", "Tank Top", "Long-Sleeve Shirt", "Polo", "Dress Shirt"};
     static String[] dresses = {"Long Dress", "Medium Dress", "Short Dress"};
     static String[][] tops = {shirts, dresses};
     static String[] pants = {"Jeans", "Slacks", "Leggings", "Cargo pants"};
-    static String[] shorts = {"Sport shorts", "Booty", "Jean"};
-    static String[] skirts = {"Tight", "Straight", "Loose pleat"};
+    static String[] shorts = {"Sport Shorts", "Booty Shorts", "Jean Shorts"};
+    static String[] skirts = {"Tight", "Straight", "Loose Pleat"};
     static String[][] bottoms = {pants, shorts, skirts};
-    static String[][] shoes = {{"Tennis shoes", "Boots", "Dress shoes", "Heels", "Wedges", "Open-toed shoes"}};
+    static String[][] shoes = {{"Tennis Shoes", "Boots", "Dress Shoes", "Heels", "Wedges", "Open-toed Shoes"}};
     static String[][] accessories = {{"Jacket", "Jewelry", "Makeup"}};
     static String[][][] clothing = {tops, bottoms, shoes, accessories};
 
@@ -29,7 +29,12 @@ public class LookUpMaps{
     }
 
     static String map(int generalCategory, int subCategory, int clothingType){
-        return clothing[generalCategory][subCategory][clothingType];
+        try{
+            return clothing[generalCategory][subCategory][clothingType];
+        }
+        catch (Exception e){
+            return "ERROR";
+        }
     }
 
     static int[] map(String clothingName) {
@@ -44,6 +49,9 @@ public class LookUpMaps{
             }
         }
         Integer[] unfilteredOutput = reverseMap.get(clothingName);
+        if(unfilteredOutput == null){
+            return null;
+        }
         int[] output = new int[]{unfilteredOutput[0].intValue(), unfilteredOutput[1].intValue(), unfilteredOutput[2].intValue()};
         return output;
     }

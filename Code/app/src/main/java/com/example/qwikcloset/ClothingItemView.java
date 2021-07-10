@@ -29,9 +29,9 @@ public class ClothingItemView extends AppCompatActivity {
             ImageView picture = findViewById(R.id.clothing_image);
             TextView clothingType = findViewById(R.id.clothing_type);
             TextView clothingColor = findViewById(R.id.clothing_color);
-            TextView clothingWeather = findViewById(R.id.clothingWeather);
-            TextView clothingMood = findViewById(R.id.clothingMood);
-            TextView clothingTask = findViewById(R.id.clothingTask);
+            TextView clothingWeather = findViewById(R.id.clothing_weather);
+            TextView clothingMood = findViewById(R.id.clothing_mood);
+            TextView clothingTask = findViewById(R.id.clothing_task);
 
             title.setText("");
             picture.setImageDrawable(clothingItem.picture);
