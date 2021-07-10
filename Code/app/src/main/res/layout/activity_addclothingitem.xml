@@ -856,7 +856,7 @@
                 android:rotationY="0"
                 android:shadowColor="#3F51B5"
                 android:shadowDx="5"
-                android:text="Save Outfit"
+                android:text="Save Clothing"
                 android:textColor="#3F51B5"
                 app:backgroundTint="#FDFCFC" />
 </LinearLayout>
