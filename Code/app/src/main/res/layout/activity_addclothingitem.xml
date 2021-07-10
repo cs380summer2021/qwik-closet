@@ -13,35 +13,48 @@
     tools:context=".ClothingItemView">
 
 
-    <TextView
+    <ImageView
+        android:id="@+id/clothing_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"/>
+
+    <TextView
         android:id="@+id/add_clothing_selected_clothing_type"
-        android:text="Clothing Type: None selected"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="Clothing Type: None selected" />
+
+
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/add_clothing_selected_mood"
-        android:text="Mood: None selected"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop=""
+        android:text="Mood: None selected" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/add_clothing_selected_weather"
-        android:text="Weather: None selected"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weather: None selected" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/add_clothing_selected_task"
-        android:text="Task: None selected"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Task: None selected" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/add_clothing_selected_color"
-        android:text="Color: None selected"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color: None selected" />
+
+
 
     <ScrollView
         android:layout_width="match_parent"

@@ -12,6 +12,6 @@ public class AddClothingItemView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addclothingitem);
 
-
+        Button buttonClothing
     }
 }
