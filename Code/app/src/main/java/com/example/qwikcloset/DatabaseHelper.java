@@ -2,11 +2,13 @@ package com.example.qwikcloset;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
 import androidx.annotation.Nullable;
@@ -40,21 +42,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return outputStream.toByteArray();
     }
 
-    public Bitmap getImage(int i){
-        SQLiteDatabase db = this.getWritableDatabase();
-        String qu = "select img  from " + TABLE_1 + " where feedid =" + i ;
-        Cursor cur = db.rawQuery(qu, null);
-
-        if (cur.moveToFirst()){
-            byte[] imgByte = cur.getBlob(0);
-            cur.close();
-            return BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
-        }
-        if (cur != null && !cur.isClosed()) {
-            cur.close();
-        }
-
-        return null;
+    public Bitmap byteArrayToBitMap(byte[] bytes){
+        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
     public static Connection connect(String url){
@@ -150,7 +139,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public ArrayList<ClothingItem> getAllData_Clothing() {
+    public ArrayList<ClothingItem> getAllData_Clothing(Context context) {
         SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<ClothingItem> list = new ArrayList<ClothingItem>();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_1, null);
@@ -166,12 +155,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String task = cursor.getString(cursor.getColumnIndex("Task"));
                 String color = cursor.getString(cursor.getColumnIndex("Color"));
                 byte[] bytes = cursor.getBlob(cursor.getColumnIndex("Picture"));
+                Drawable drawable = new BitmapDrawable(context.getResources(), byteArrayToBitMap(bytes));
 
+                list.add(new ClothingItem(id, category, subCategory, specificCategory, mood, weather, task, color, drawable));
 
                 cursor.moveToNext();
             }
         }
-        return new ArrayList<ClothingItem>();
+        return list;
     }
     public Cursor getSpecificData_Clothing(String category) {
         SQLiteDatabase db = this.getWritableDatabase();
