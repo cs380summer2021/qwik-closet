@@ -64,6 +64,41 @@ public class AddClothingItemView extends AppCompatActivity {
         Button buttonMakeup = findViewById(R.id.add_clothing_makeup);
         Button buttonHats = findViewById(R.id.add_clothing_hat);
         Button buttonSunglasses = findViewById(R.id.add_clothing_sunglasses);
+        ArrayList<Button> clothingTypes = new ArrayList<Button>();
+        clothingTypes.add(buttonCropTop);
+        clothingTypes.add(buttonTShirt);
+        clothingTypes.add(buttonTankTop);
+        clothingTypes.add(buttonLongSleeve);
+        clothingTypes.add(buttonLongFlannel);
+        clothingTypes.add(buttonCollaredShirt);
+        clothingTypes.add(buttonDressShirt);
+        clothingTypes.add(buttonBlouse);
+        clothingTypes.add(buttonLongDress);
+        clothingTypes.add(buttonMediumDress);
+        clothingTypes.add(buttonShortDress);
+        clothingTypes.add(buttonJeans);
+        clothingTypes.add(buttonSlacks);
+        clothingTypes.add(buttonLeggings);
+        clothingTypes.add(buttonCargoPants);
+        clothingTypes.add(buttonSportShorts);
+        clothingTypes.add(buttonBootyShorts);
+        clothingTypes.add(buttonJeanShorts);
+        clothingTypes.add(buttonTightSkirt);
+        clothingTypes.add(buttonStraightSkirt);
+        clothingTypes.add(buttonPleatedSkirt);
+        clothingTypes.add(buttonFlowySkirt);
+        clothingTypes.add(buttonTennisShoes);
+        clothingTypes.add(buttonBoots);
+        clothingTypes.add(buttonDressShoes);
+        clothingTypes.add(buttonHeels);
+        clothingTypes.add(buttonWedges);
+        clothingTypes.add(buttonOpenToeShoes);
+        clothingTypes.add(buttonHighTops);
+        clothingTypes.add(buttonJacket);
+        clothingTypes.add(buttonJewelry);
+        clothingTypes.add(buttonMakeup);
+        clothingTypes.add(buttonHats);
+        clothingTypes.add(buttonSunglasses);
 
         TextView moodPrompter = findViewById(R.id.add_clothing_mood_prompter);
         Button buttonSad = findViewById(R.id.add_clothing_sad);
@@ -71,6 +106,13 @@ public class AddClothingItemView extends AppCompatActivity {
         Button buttonRelaxed = findViewById(R.id.add_clothing_relaxed);
         Button buttonHappy = findViewById(R.id.add_clothing_happy);
         Button buttonNoEmotion = findViewById(R.id.add_clothing_no_emotion);
+        ArrayList<Button> moods = new ArrayList<Button>();
+        moods.add(buttonSad);
+        moods.add(buttonConfident);
+        moods.add(buttonRelaxed);
+        moods.add(buttonHappy);
+        moods.add(buttonNoEmotion);
+
 
         TextView temperaturePrompter = findViewById(R.id.add_clothing_temperature_prompter);
         Button buttonHot = findViewById(R.id.add_clothing_hot);
@@ -79,13 +121,26 @@ public class AddClothingItemView extends AppCompatActivity {
         Button buttonCold = findViewById(R.id.add_clothing_cold);
         Button buttonFreezing  = findViewById(R.id.add_clothing_freezing);
         Button buttonNoTemperature = findViewById(R.id.add_clothing_no_temperature);
+        ArrayList<Button> temperatures = new ArrayList<Button>();
+        temperatures.add(buttonHot);
+        temperatures.add(buttonWarm);
+        temperatures.add(buttonTemperate);
+        temperatures.add(buttonCold);
+        temperatures.add(buttonFreezing);
+        temperatures.add(buttonNoTemperature);
 
         TextView precipitationPrompter = findViewById(R.id.add_clothing_precipitation_prompter);
         Button buttonClear = findViewById(R.id.add_clothing_clear);
         Button buttonCloudy = findViewById(R.id.add_clothing_cloudy);
         Button buttonRaining = findViewById(R.id.add_clothing_raining);
         Button buttonSnowing = findViewById(R.id.add_clothing_snowing);
-        Button buttonnoPrecipitation = findViewById(R.id.add_clothing_no_precipitation);
+        Button buttonNoPrecipitation = findViewById(R.id.add_clothing_no_precipitation);
+        ArrayList<Button> precipitations = new ArrayList<Button>();
+        precipitations.add(buttonClear);
+        precipitations.add(buttonCloudy);
+        precipitations.add(buttonRaining);
+        precipitations.add(buttonSnowing);
+        precipitations.add(buttonNoPrecipitation);
 
         TextView taskPrompter = findViewById(R.id.add_clothing_task_prompter);
         Button buttonBusiness = findViewById(R.id.add_clothing_business);
@@ -95,6 +150,14 @@ public class AddClothingItemView extends AppCompatActivity {
         Button buttonElegant = findViewById(R.id.add_clothing_elegant);
         Button buttonActive = findViewById(R.id.add_clothing_active);
         Button buttonNoTask = findViewById(R.id.add_clothing_no_task);
+        ArrayList<Button> tasks = new ArrayList<Button>();
+        tasks.add(buttonBusiness);
+        tasks.add(buttonLabor);
+        tasks.add(buttonCasual);
+        tasks.add(buttonParty);
+        tasks.add(buttonElegant);
+        tasks.add(buttonActive);
+        tasks.add(buttonNoTask);
 
         TextView colorPrompter = findViewById(R.id.add_clothing_color_prompter);
         Button buttonAqua = findViewById(R.id.add_clothing_aqua);
@@ -118,8 +181,29 @@ public class AddClothingItemView extends AppCompatActivity {
         Button buttonTeal = findViewById(R.id.add_clothing_teal);
         Button buttonWhite = findViewById(R.id.add_clothing_white);
         Button buttonYellow = findViewById(R.id.add_clothing_yellow);
-        Button buttonNocolor = findViewById(R.id.add_clothing_no_color);
-
-
+        Button buttonNoColor = findViewById(R.id.add_clothing_no_color);
+        ArrayList<Button> colors = new ArrayList<Button>();
+        colors.add(buttonAqua);
+        colors.add(buttonBlack);
+        colors.add(buttonBlue);
+        colors.add(buttonBrown);
+        colors.add(buttonFuchsia);
+        colors.add(buttonGrey);
+        colors.add(buttonGreen);
+        colors.add(buttonLightBlue);
+        colors.add(buttonLime;
+        colors.add(buttonMaroon);
+        colors.add(buttonNavyBlue);
+        colors.add(buttonOlive);
+        colors.add(buttonOrange);
+        colors.add(buttonPink);
+        colors.add(buttonPurple);
+        colors.add(buttonRed);
+        colors.add(buttonSilver);
+        colors.add(buttonTan);
+        colors.add(buttonTeal);
+        colors.add(buttonWhite);
+        colors.add(buttonYellow);
+        colors.add(buttonNoColor);
     }
 }
