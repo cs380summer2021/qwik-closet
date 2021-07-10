@@ -1,6 +1,7 @@
 package com.example.qwikcloset;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -23,6 +24,7 @@ public class TestingLayout extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testing_layout);
+        myDb = new DatabaseHelper(this);
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
@@ -75,6 +77,29 @@ public class TestingLayout extends AppCompatActivity {
                 String stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+fileName;
                 Bitmap bitmap = BitmapFactory.decodeFile(stringFilePath);
                 myDb.insertData_Clothing("1", "1", "1", "sad", "clear", "work", "bird", bitmap);
+                break;
+            case 1:
+                fileName = "Tit.jpg";
+                stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+fileName;
+                bitmap = BitmapFactory.decodeFile(stringFilePath);
+                myDb.insertData_Clothing("2", "1", "1", "sad", "clear", "work", "bird", bitmap);
+                break;
+            case 2:
+                fileName = "Tit.jpg";
+                stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+fileName;
+                bitmap = BitmapFactory.decodeFile(stringFilePath);
+                myDb.insertData_Clothing("3", "1", "1", "sad", "clear", "work", "bird", bitmap);
+                break;
+            case 3:
+                fileName = "Tit.jpg";
+                stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+fileName;
+                bitmap = BitmapFactory.decodeFile(stringFilePath);
+                myDb.insertData_Clothing("4", "1", "1", "sad", "clear", "work", "bird", bitmap);
+                break;
+            case 4:
+                Intent intent = new Intent(TestingLayout.this,
+                        ClosetView.class);
+                startActivity(intent);
                 break;
             default:
                 break;
