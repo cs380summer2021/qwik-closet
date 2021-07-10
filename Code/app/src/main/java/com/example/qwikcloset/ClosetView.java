@@ -34,7 +34,22 @@ public class ClosetView extends AppCompatActivity {
         List<CategoryItem> categoryItemList4 = new ArrayList<>();
 
         for(int i = 0; i < clothing.size(); ++i){
-            
+            ClothingItem clothingItem = clothing.get(i);
+            switch (clothingItem.category){
+                case "1":
+                    categoryItemList1.add(new CategoryItem(clothingItem.id, clothingItem.picture));
+                    break;
+                case "2":
+                    categoryItemList2.add(new CategoryItem(clothingItem.id, clothingItem.picture));
+                    break;
+                case "3":
+                    categoryItemList3.add(new CategoryItem(clothingItem.id, clothingItem.picture));
+                    break;
+                case "4":
+                    categoryItemList4.add(new CategoryItem(clothingItem.id, clothingItem.picture));
+                    break;
+                default:
+            }
         }
 
 

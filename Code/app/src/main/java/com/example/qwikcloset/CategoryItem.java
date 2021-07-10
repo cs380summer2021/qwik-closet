@@ -1,12 +1,15 @@
 package com.example.qwikcloset;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+
 public class CategoryItem {
     Integer itemId;
-    Integer imageUrl;
+    Drawable drawable;
 
-    public CategoryItem(Integer itemId, Integer imageUrl) {
+    public CategoryItem(Integer itemId, Drawable drawable) {
         this.itemId = itemId;
-        this.imageUrl = imageUrl;
+        this.drawable = drawable;
     }
 
     public Integer getItemId() {
@@ -17,11 +20,11 @@ public class CategoryItem {
         this.itemId = itemId;
     }
 
-    public Integer getImageUrl() {
-        return imageUrl;
+    public Drawable getImageUrl() {
+        return drawable;
     }
 
-    public void setImageUrl(Integer imageUrl) {
-        this.imageUrl = imageUrl;
-    }
+    /*public void setImageUrl(Integer imageUrl) {
+        this.drawable = imageUrl;
+    }*/
 }

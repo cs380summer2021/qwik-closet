@@ -30,8 +30,7 @@ public class CategoryItemRecyclerAdapter extends RecyclerView.Adapter<CategoryIt
 
     @Override
     public void onBindViewHolder(@NonNull  CategoryItemRecyclerAdapter.CategoryItemViewHolder holder, int position) {
-
-        holder.itemImage.setImageResource(categoryItemList.get(position).getImageUrl());
+        holder.itemImage.setImageDrawable(categoryItemList.get(position).getImageUrl());
 
     }
 

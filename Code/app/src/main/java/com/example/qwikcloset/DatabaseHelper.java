@@ -139,10 +139,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public ArrayList<ClothingItem> getAllData_Clothing(Context context) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public ArrayList<ClothingItem> readClothingCursor(Cursor cursor, Context context){
         ArrayList<ClothingItem> list = new ArrayList<ClothingItem>();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_1, null);
 
         if(cursor.moveToFirst()){
             while(!cursor.isAfterLast()){
@@ -162,6 +160,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 cursor.moveToNext();
             }
         }
+        return list;
+    }
+
+    public ArrayList<ClothingItem> getAllData_Clothing(Context context) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_1, null);
+        ArrayList<ClothingItem> list = readClothingCursor(cursor, context);
         return list;
     }
     public Cursor getSpecificData_Clothing(String category) {
