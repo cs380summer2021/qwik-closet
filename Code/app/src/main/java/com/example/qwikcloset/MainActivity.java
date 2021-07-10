@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MainActivity", "onClick: Clicked enterYourCloset.");
 
                 Intent intent = new Intent(MainActivity.this,
-                        TestingLayout.class);
+                        MainMenuView.class);
                 startActivity(intent);
             }
         });

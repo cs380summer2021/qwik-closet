@@ -160,6 +160,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 cursor.moveToNext();
             }
         }
+        cursor.close();
         return list;
     }
 

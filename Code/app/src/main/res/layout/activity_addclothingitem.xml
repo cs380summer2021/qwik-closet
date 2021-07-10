@@ -12,21 +12,36 @@
     android:id="@+id/add_clothing_item_layout"
     tools:context=".ClothingItemView">
 
-    <TextView
-        android:id="@+id/outfitTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Item Name: "
-        android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/enterOutfitName"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter Item Name"
-        android:inputType="textPersonName" />
+        android:id="@+id/add_clothing_selected_clothing_type"
+        android:text="Clothing Type: None selected"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_clothing_selected_mood"
+        android:text="Mood: None selected"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_clothing_selected_weather"
+        android:text="Weather: None selected"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_clothing_selected_task"
+        android:text="Task: None selected"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_clothing_selected_color"
+        android:text="Color: None selected"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -37,259 +52,785 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-
-
-
             <Button
-        android:id="@+id/clothingImageToUpload"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Add Image"
-        tools:srcCompat="@mipmap/tiedye" />
-
-    <TextView
-        android:id="@+id/outfitTop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:text="Clothing Type:" />
-
-    <Button
-        android:id="@+id/top"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Top" />
-
-    <Button
-        android:id="@+id/bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Bottom" />
-
-    <Button
-        android:id="@+id/onepiece"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="One Piece" />
-
-    <Button
-        android:id="@+id/shoes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Shoes" />
-
-
-    <Button
-        android:id="@+id/accessories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Accessories" />
-
-    <TextView
-        android:id="@+id/outfitBottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Clothing Color: " />
-
-    <Button
-        android:id="@+id/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="White" />
-
-    <Button
-        android:id="@+id/Yellow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Yellow" />
-
-    <Button
-        android:id="@+id/Green"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Green" />
-
-    <Button
-        android:id="@+id/Blue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Blue" />
-
-    <Button
-        android:id="@+id/Purple"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Purple" />
-
-    <Button
-        android:id="@+id/Pink"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Pink" />
-
-    <Button
-        android:id="@+id/Red"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Red" />
-
-    <Button
-        android:id="@+id/Orange"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Orange" />
-    <TextView
-        android:id="@+id/clothingWeather"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Appropriate Weather: " />
-
-            <Button
-                android:id="@+id/summer"
+                android:id="@+id/add_clothing_take_picture"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:rotation="0"
                 android:rotationX="0"
                 android:rotationY="0"
-                android:text="Summer" />
-            <Button
-                android:id="@+id/winter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Winter" />
-            <Button
-                android:id="@+id/spring"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Spring" />
+                android:text="Take Picture"/>
 
             <Button
-                android:id="@+id/autumn"
+                android:id="@+id/add_clothing_add_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:rotation="0"
                 android:rotationX="0"
                 android:rotationY="0"
-                android:text="Autumn" />
+                android:text="Add Image"/>
 
-    <TextView
-        android:id="@+id/clothingMood"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mood: " />
+            <TextView
+                android:id="@+id/add_clothing_clothing_type_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Clothing Type:" />
+
+
             <Button
-                android:id="@+id/confident"
+                android:id="@+id/add_clothing_crop_top_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Crop Top" />
+
+            <Button
+                android:id="@+id/add_clothing_t_shirt_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="T-Shirt" />
+
+            <Button
+                android:id="@+id/add_clothing_tank_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Tank Top" />
+            <Button
+                android:id="@+id/add_clothing_long_sleeve_shirt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Long-Sleeve Shirt" />
+
+            <Button
+                android:id="@+id/add_clothing_long_sleeve_flannel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Long-Sleeve Flannel" />
+
+            <Button
+                android:id="@+id/add_clothing_collared_shirt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Collared Shirt" />
+
+            <Button
+                android:id="@+id/add_clothing_dress_shirt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Dress Shirt" />
+
+            <Button
+                android:id="@+id/add_clothing_blouse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Blouse" />
+
+            <Button
+                android:id="@+id/add_clothing_long_dress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Long Dress" />
+
+            <Button
+                android:id="@+id/add_clothing_medium_dress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Medium Dress" />
+            <Button
+                android:id="@+id/add_clothing_short_dress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Short Dress" />
+
+            <Button
+                android:id="@+id/add_clothing_jeans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Jeans" />
+
+            <Button
+                android:id="@+id/add_clothing_slacks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Slacks" />
+
+            <Button
+                android:id="@+id/add_clothing_leggings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Leggings" />
+
+            <Button
+                android:id="@+id/add_clothing_cargo_pants"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Cargo Pants" />
+
+            <Button
+                android:id="@+id/add_clothing_sport_short"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Sport Shorts" />
+
+            <Button
+                android:id="@+id/add_clothing_booty_shorts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Booty Shorts" />
+
+            <Button
+                android:id="@+id/add_clothing_jean_shorts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Jean Shorts" />
+
+            <Button
+                android:id="@+id/add_clothing_tight_skirt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Tight Skirt" />
+
+            <Button
+                android:id="@+id/add_clothing_straight_skirt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Straight Skirt" />
+
+            <Button
+                android:id="@+id/add_clothing_pleat_skirt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Pleated Skirt" />
+
+            <Button
+                android:id="@+id/add_clothing_flowy_skirt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Flowy Skirt" />
+
+            <Button
+                android:id="@+id/add_clothing_tennis_shoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Tennis Shoes" />
+
+            <Button
+                android:id="@+id/add_clothing_boots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Boots" />
+
+            <Button
+                android:id="@+id/add_clothing_dress_shoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Dress Shoes" />
+
+            <Button
+                android:id="@+id/add_clothing_heels"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Heels" />
+
+            <Button
+                android:id="@+id/add_clothing_wedges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Wedges" />
+
+            <Button
+                android:id="@+id/add_clothing_open_toed_shoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Open-Toed Shoes" />
+
+            <Button
+                android:id="@+id/add_clothing_high_tops"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="High Tops" />
+
+            <Button
+                android:id="@+id/add_clothing_jacket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Jacket" />
+
+            <Button
+                android:id="@+id/add_clothing_jewelry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Jewelry" />
+
+            <Button
+                android:id="@+id/add_clothing_makeup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Makeup" />
+
+            <Button
+                android:id="@+id/add_clothing_hat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Hat" />
+
+            <Button
+                android:id="@+id/add_clothing_sunglasses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Sunglasses" />
+
+            <TextView
+                android:id="@+id/add_clothing_mood_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Mood:" />
+
+            <Button
+                android:id="@+id/add_clothing_sad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Sad" />
+
+            <Button
+                android:id="@+id/add_clothing_confident"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:rotation="0"
                 android:rotationX="0"
                 android:rotationY="0"
                 android:text="Confident" />
-            <Button
-                android:id="@+id/lazy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Lazy" />
-            <Button
-                android:id="@+id/spunky"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Spunky" />
-            <Button
-                android:id="@+id/professional"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Professional" />
-
-    <TextView
-        android:id="@+id/clothingTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="For What Task(s):  " />
-            <Button
-                android:id="@+id/party"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="party" />
-            <Button
-                android:id="@+id/work"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Work" />
-            <Button
-                android:id="@+id/relaxing"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Relaxing" />
 
             <Button
-                android:id="@+id/saveItem"
+                android:id="@+id/add_clothing_relaxed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Relaxed" />
+
+            <Button
+                android:id="@+id/add_clothing_happy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Happy" />
+
+            <Button
+                android:id="@+id/add_clothing_no_emotion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="No Emotion" />
+
+            <TextView
+                android:id="@+id/add_clothing_weather_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Weather:" />
+
+            <TextView
+                android:id="@+id/add_clothing_temperature_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Temperature:" />
+
+            <Button
+                android:id="@+id/add_clothing_hot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Hot" />
+
+            <Button
+                android:id="@+id/add_clothing_warm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Warm" />
+
+            <Button
+                android:id="@+id/add_clothing_temperate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Temperate" />
+
+            <Button
+                android:id="@+id/add_clothing_cold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Cold" />
+
+            <Button
+                android:id="@+id/add_clothing_freezing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Freezing" />
+
+            <Button
+                android:id="@+id/add_clothing_no_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="No Temperature" />
+
+            <TextView
+                android:id="@+id/add_clothing_precipitation_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Precipitation:" />
+
+            <Button
+                android:id="@+id/add_clothing_clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Clear" />
+
+            <Button
+                android:id="@+id/add_clothing_cloudy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Cloudy" />
+
+            <Button
+                android:id="@+id/add_clothing_raining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Raining" />
+
+            <Button
+                android:id="@+id/add_clothing_snowing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Snowing" />
+
+            <Button
+                android:id="@+id/add_clothing_no_precipitation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="No Precipitation" />
+
+            <TextView
+                android:id="@+id/add_clothing_task_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Task:" />
+
+            <Button
+                android:id="@+id/add_clothing_business"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Business" />
+
+            <Button
+                android:id="@+id/add_clothing_labor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Labor" />
+
+            <Button
+                android:id="@+id/add_clothing_casual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Casual" />
+
+            <Button
+                android:id="@+id/add_clothing_party"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Party" />
+
+            <Button
+                android:id="@+id/add_clothing_elegant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Elegant" />
+
+            <Button
+                android:id="@+id/add_clothing_active"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Active" />
+
+            <Button
+                android:id="@+id/add_clothing_no_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="No Task" />
+
+            <TextView
+                android:id="@+id/add_clothing_color_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Color:" />
+
+            <Button
+                android:id="@+id/add_clothing_aqua"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Aqua" />
+
+            <Button
+                android:id="@+id/add_clothing_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Black" />
+
+            <Button
+                android:id="@+id/add_clothing_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Blue" />
+
+            <Button
+                android:id="@+id/add_clothing_brown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Brown" />
+
+            <Button
+                android:id="@+id/add_clothing_fuchsia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Fuchsia" />
+
+            <Button
+                android:id="@+id/add_clothing_grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Grey" />
+
+            <Button
+                android:id="@+id/add_clothing_green"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Green" />
+
+            <Button
+                android:id="@+id/add_clothing_light_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Light Blue" />
+
+            <Button
+                android:id="@+id/add_clothing_lime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Lime" />
+
+            <Button
+                android:id="@+id/add_clothing_maroon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Maroon" />
+
+            <Button
+                android:id="@+id/add_clothing_navy_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Navy Blue" />
+
+            <Button
+                android:id="@+id/add_clothing_olive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Olive" />
+
+            <Button
+                android:id="@+id/add_clothing_orange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Orange" />
+
+            <Button
+                android:id="@+id/add_clothing_pink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Pink" />
+
+            <Button
+                android:id="@+id/add_clothing_purple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Purple" />
+
+            <Button
+                android:id="@+id/add_clothing_red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Red" />
+
+            <Button
+                android:id="@+id/add_clothing_silver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Silver" />
+
+            <Button
+                android:id="@+id/add_clothing_tan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Tan" />
+
+            <Button
+                android:id="@+id/add_clothing_teal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Teal" />
+
+            <Button
+                android:id="@+id/add_clothing_white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="White" />
+
+            <Button
+                android:id="@+id/add_clothing_yellow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Yellow" />
+
+            <Button
+                android:id="@+id/add_clothing_no_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="No Color" />
+
+            <Button
+                android:id="@+id/add_clothing_saveItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:rotation="0"

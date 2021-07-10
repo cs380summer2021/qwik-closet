@@ -5,15 +5,15 @@ import android.util.Log;
 import java.util.HashMap;
 
 public class LookUpMaps{
-    static String[] shirts = {"Crop Top", "T-Shirt", "Tank Top", "Long-Sleeve Shirt", "Polo", "Dress Shirt"};
+    static String[] shirts = {"Crop Top", "T-Shirt", "Tank Top", "Long-Sleeve Shirt", "Long-Sleeve Flannel", "Collared Shirt", "Dress Shirt", "Blouse"};
     static String[] dresses = {"Long Dress", "Medium Dress", "Short Dress"};
     static String[][] tops = {shirts, dresses};
-    static String[] pants = {"Jeans", "Slacks", "Leggings", "Cargo pants"};
+    static String[] pants = {"Jeans", "Slacks", "Leggings", "Cargo Pants"};
     static String[] shorts = {"Sport Shorts", "Booty Shorts", "Jean Shorts"};
-    static String[] skirts = {"Tight", "Straight", "Loose Pleat"};
+    static String[] skirts = {"Tight Skirts", "Straight Skirt", "Pleated Skirt", "Flowy Skirt"};
     static String[][] bottoms = {pants, shorts, skirts};
-    static String[][] shoes = {{"Tennis Shoes", "Boots", "Dress Shoes", "Heels", "Wedges", "Open-toed Shoes"}};
-    static String[][] accessories = {{"Jacket", "Jewelry", "Makeup"}};
+    static String[][] shoes = {{"Tennis Shoes", "Boots", "Dress Shoes", "Heels", "Wedges", "Open-Toed Shoes", "High Tops"}};
+    static String[][] accessories = {{"Jacket", "Jewelry", "Makeup", "Hat", "Sunglasses"}};
     static String[][][] clothing = {tops, bottoms, shoes, accessories};
 
     public static String toString(int[] array){

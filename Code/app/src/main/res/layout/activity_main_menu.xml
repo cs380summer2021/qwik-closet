@@ -8,24 +8,24 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/menu_go_to_outfit_gallery_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Outfits"
-        app:layout_constraintBottom_toTopOf="@+id/createOutfit"
+        android:text="View Outfit Gallery"
+        app:layout_constraintBottom_toTopOf="@+id/menu_go_to_build_outfit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_go_to_add_clothing" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/menu_go_to_add_clothing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Clothing Item"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        android:text="Add Clothing Item"
+        app:layout_constraintBottom_toTopOf="@+id/menu_go_to_outfit_gallery_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewClothing" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_go_to_closet_view" />
 
     <TextView
         android:id="@+id/mainText"
@@ -39,23 +39,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/viewClothing"
+        android:id="@+id/menu_go_to_closet_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View Clothing Gallery"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/menu_go_to_add_clothing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainText" />
 
     <Button
-        android:id="@+id/createOutfit"
+        android:id="@+id/menu_go_to_build_outfit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Outfit"
+        android:text="Build Outfit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/menu_go_to_outfit_gallery_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

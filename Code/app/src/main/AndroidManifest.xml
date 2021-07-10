@@ -23,6 +23,8 @@
         <activity android:name=".TestingLayout">
         </activity>
         <activity android:name=".ClothingItemView" />
+        <activity android:name=".MainMenuView" />
+        <activity android:name=".AddClothingItemView" />
     </application>
 
 </manifest>

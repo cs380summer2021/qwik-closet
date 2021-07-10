@@ -68,7 +68,7 @@ public class ClosetView extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("ClosetView", "onClick: Clicked returnToMainMenu");
 
-                Intent intent = new Intent(ClosetView.this, MainActivity.class);
+                Intent intent = new Intent(ClosetView.this, MainMenuView.class);
                 startActivity(intent);
             }
         });
