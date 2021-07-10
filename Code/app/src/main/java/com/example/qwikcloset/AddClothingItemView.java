@@ -1,9 +1,8 @@
 package com.example.qwikcloset;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AddClothingItemView extends AppCompatActivity {
@@ -12,6 +11,12 @@ public class AddClothingItemView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addclothingitem);
 
-        Button buttonClothing
+        ImageView previewImage = findViewById(R.id.add_clothing_preview_image);
+        TextView clothingType = findViewById(R.id.add_clothing_selected_clothing_type);
+        TextView clothingMood = findViewById(R.id.add_clothing_selected_mood);
+        TextView clothingTemperature = findViewById(R.id.add_clothing_selected_temperature);
+        TextView clothingPrecipitation = findViewById(R.id.add_clothing_selected_precipitation);
+        TextView clothingTask = findViewById(R.id.add_clothing_selected_task);
+        
     }
 }

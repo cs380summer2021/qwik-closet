@@ -29,7 +29,8 @@ public class ClothingItemView extends AppCompatActivity {
             ImageView picture = findViewById(R.id.clothing_image);
             TextView clothingType = findViewById(R.id.clothing_type);
             TextView clothingColor = findViewById(R.id.clothing_color);
-            TextView clothingWeather = findViewById(R.id.clothing_weather);
+            TextView clothingTemperature = findViewById(R.id.clothing_temperature);
+            TextView clothingPrecipitation = findViewById(R.id.clothing_precipitation);
             TextView clothingMood = findViewById(R.id.clothing_mood);
             TextView clothingTask = findViewById(R.id.clothing_task);
 
@@ -37,7 +38,8 @@ public class ClothingItemView extends AppCompatActivity {
             picture.setImageDrawable(clothingItem.picture);
             clothingType.setText(LookUpMaps.map(Integer.parseInt(clothingItem.category), Integer.parseInt(clothingItem.subCategory), Integer.parseInt(clothingItem.specificCategory)));
             clothingColor.setText(clothingItem.color);
-            clothingWeather.setText(clothingItem.weather);
+            clothingTemperature.setText(clothingItem.temperature);
+            clothingPrecipitation.setText(clothingItem.precipitation);
             clothingMood.setText(clothingItem.mood);
             clothingTask.setText(clothingItem.task);
 

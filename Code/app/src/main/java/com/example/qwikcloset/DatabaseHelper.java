@@ -82,8 +82,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_1 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Category TEXT, Sub_Category TEXT , Specific_Category TEXT, Mood TEXT, Weather TEXT, Task TEXT, Color TEXT, Picture BLOB)");
-        db.execSQL("CREATE TABLE " + TABLE_2 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Tops INTEGER, Bottoms INTEGER, Shoes INTEGER, ACC1 INTEGER, ACC2 INTEGER, ACC3 INTEGER, Mood TEXT, Weather TEXT, Task TEXT, Color TEXT, Rating INTEGER, Saved BOOLEAN)");
+        db.execSQL("CREATE TABLE " + TABLE_1 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Category TEXT, Sub_Category TEXT , Specific_Category TEXT, Mood TEXT, Temperature TEXT, Precipitation TEXT, Task TEXT, Color TEXT, Picture BLOB)");
+        db.execSQL("CREATE TABLE " + TABLE_2 + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, Tops INTEGER, Bottoms INTEGER, Shoes INTEGER, ACC1 INTEGER, ACC2 INTEGER, ACC3 INTEGER, Mood TEXT, Temperature TEXT, Precipitation TEXT, Task TEXT, Color TEXT, Rating INTEGER)");
     }
 
     @Override
@@ -94,14 +94,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertData_Clothing(String category, String subcategory, String specificCategory, String mood, String weather, String task, String color, Bitmap picture) {
+    public boolean insertData_Clothing(String category, String subcategory, String specificCategory, String mood, String temperature, String precipitation, String task, String color, Bitmap picture) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("Category", category);
         contentValues.put("Sub_Category", subcategory);
         contentValues.put("Specific_Category", specificCategory);
         contentValues.put("Mood", mood);
-        contentValues.put("Weather", weather);
+        contentValues.put("Temperature", temperature);
+        contentValues.put("Precipitation", precipitation);
         contentValues.put("Task", task);
         contentValues.put("Color", color);
         byte[] image = insertImg(picture);
@@ -115,7 +116,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean insertData_Outfit(int tops, int bottoms, int shoes, int acc1, int acc2, int acc3,  String mood, String weather, String task, String color, int rating, boolean saved) {
+    public boolean insertData_Outfit(int tops, int bottoms, int shoes, int acc1, int acc2, int acc3,  String mood, String temperature, String precipitation, String task, String color, int rating) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("Top", tops);
@@ -125,11 +126,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("ACC2", acc2);
         contentValues.put("ACC3", acc3);
         contentValues.put("Mood", mood);
-        contentValues.put("Weather", weather);
+        contentValues.put("Temperature", temperature);
+        contentValues.put("Precipitation", precipitation);
         contentValues.put("Task", task);
         contentValues.put("Color", color);
         contentValues.put("Rating", rating);
-        contentValues.put("Saved", saved);
 
         long result = db.insert(TABLE_2, null, contentValues);
 
@@ -149,13 +150,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String subCategory = cursor.getString(cursor.getColumnIndex("Sub_Category"));
                 String specificCategory = cursor.getString(cursor.getColumnIndex("Specific_Category"));
                 String mood = cursor.getString(cursor.getColumnIndex("Mood"));
-                String weather = cursor.getString(cursor.getColumnIndex("Weather"));
+                String temperature = cursor.getString(cursor.getColumnIndex("Temperature"));
+                String precipitation = cursor.getString(cursor.getColumnIndex("Precipitation"));
                 String task = cursor.getString(cursor.getColumnIndex("Task"));
                 String color = cursor.getString(cursor.getColumnIndex("Color"));
                 byte[] bytes = cursor.getBlob(cursor.getColumnIndex("Picture"));
                 Drawable drawable = new BitmapDrawable(context.getResources(), byteArrayToBitMap(bytes));
 
-                list.add(new ClothingItem(id, category, subCategory, specificCategory, mood, weather, task, color, drawable));
+                list.add(new ClothingItem(id, category, subCategory, specificCategory, mood, temperature, precipitation, task, color, drawable));
 
                 cursor.moveToNext();
             }
@@ -196,7 +198,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    public boolean updateData_Outfit(String id, int tops, int bottoms, int shoes, int acc1, int acc2, int acc3,  String mood, String weather, String task, String color, int rating, boolean saved ){
+    public boolean updateData_Outfit(String id, int tops, int bottoms, int shoes, int acc1, int acc2, int acc3,  String mood, String temperature, String precipitation, String task, String color, int rating, boolean saved ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("ID", id);
@@ -207,7 +209,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("ACC2", acc2);
         contentValues.put("ACC3", acc3);
         contentValues.put("Mood", mood);
-        contentValues.put("Weather", weather);
+        contentValues.put("Temperature", temperature);
+        contentValues.put("Precipitation", precipitation);
         contentValues.put("Task", task);
         contentValues.put("Color", color);
         contentValues.put("Rating", rating);

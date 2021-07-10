@@ -8,7 +8,8 @@ public class ClothingItem {
     String subCategory;
     String specificCategory;
     String mood;
-    String weather;
+    String temperature;
+    String precipitation;
     String task;
     String color;
     Drawable picture;
@@ -16,13 +17,14 @@ public class ClothingItem {
     public ClothingItem(){
 
     }
-    public ClothingItem(int id, String category, String subCategory, String specificCategory, String mood, String weather, String task, String color, Drawable picture){
+    public ClothingItem(int id, String category, String subCategory, String specificCategory, String mood, String temperature, String precipitation, String task, String color, Drawable picture){
         this.id = id;
         this.category = category;
         this.subCategory = subCategory;
         this.specificCategory = specificCategory;
         this.mood = mood;
-        this.weather = weather;
+        this.temperature = temperature;
+        this.precipitation = precipitation;
         this.task = task;
         this.color = color;
         this.picture = picture;

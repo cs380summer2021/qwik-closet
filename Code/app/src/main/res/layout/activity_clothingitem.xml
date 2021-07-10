@@ -42,10 +42,18 @@
         android:text="Clothing Color: Blue and Pink" />
 
     <TextView
-        android:id="@+id/clothing_weather"
+        android:id="@+id/clothing_temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Appropriate Weather: Summer" />
+        android:text="Appropriate Weather: Hot" />
+
+    <TextView
+        android:id="@+id/clothing_precipitation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Appropriate Weather: Clear" />
+
+
 
     <TextView
         android:id="@+id/clothing_mood"

@@ -53,26 +53,5 @@ public class MainActivity extends AppCompatActivity {
         //mTextViewAmount = findViewById(R.id.textview_amount);
     }
 
-    private void doThings() {
-        //HOW TO USE: write a switch case for all of the functions you wish to run, leaving them an int to tell which one is which. So, if the screen says 0, it'll run case 0.
-        //Make sure to include a break after each case.
-        switch (mAmount) {
-            case 0:
-                String fileName = "Tit.jpg";
-                String stringFilePath = Environment.getExternalStorageDirectory().getPath() + "/Download/" + fileName;
-                Bitmap bitmap = BitmapFactory.decodeFile(stringFilePath);
-                myDb.insertData_Clothing("1", "1", "1", "sad", "clear", "work", "bird", bitmap);
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void toSecondView(View view) {
-        Intent intentMain = new Intent(this ,
-                com.example.qwikcloset.ClosetView.class);
-        this.startActivity(intentMain);
-    }
-
 
 }
