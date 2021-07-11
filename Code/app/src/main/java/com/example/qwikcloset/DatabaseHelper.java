@@ -201,6 +201,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
+    public ClothingItem AllFilter(String mood, String temperature, String precipitation, String task, String color, Context context) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String s = "SELECT * FROM " + TABLE_1 + " WHERE mood = ? AND temperature = ? AND precipitation = ? AND task = ? AND color = ?";
+        ArrayList<String> sList = new ArrayList<String>();
+        sList.add(mood);
+        sList.add(temperature);
+        String[] finalOutput = (String[]) sList.toArray();
+        Cursor result = db.rawQuery("SELECT * FROM " + TABLE_1 + " WHERE mood = ? AND temperature = ? AND precipitation = ? AND task = ? AND color = ?", new String[] { mood, temperature, precipitation, task, color});
+        ArrayList<ClothingItem> list = readClothingCursor(result, context);
+        if(list.size() > 0){
+            return list.get(0);
+        }
+        return null;
+    }
+
 
     public ArrayList<ClothingItem> getAllData_Clothing(Context context) {
         SQLiteDatabase db = this.getWritableDatabase();

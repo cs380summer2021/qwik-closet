@@ -9,23 +9,50 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:id="@+id/add_clothing_item_layout"
-    tools:context=".ClothingItemView">
+    android:id="@+id/build_outfit_item_layout"
+    tools:context=".BuildOutfitView">
 
     <TextView
-        android:id="@+id/outfitTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Outfit Title: "
-        android:textSize="24sp" />
+        android:id="@+id/build_outfit_selected_top_id"
+        android:visibility="gone"
+        android:text="None Selected"/>
 
-    <EditText
-        android:id="@+id/enterOutfitName"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter Outfit Title"
-        android:inputType="textPersonName" />
+        android:id="@+id/build_outfit_selected_bottom_id"
+        android:visibility="gone"
+        android:text="None Selected"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/build_outfit_selected_shoe_id"
+        android:visibility="gone"
+        android:text="None Selected"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/build_outfit_selected_accessory1_id"
+        android:visibility="gone"
+        android:text="None Selected"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/build_outfit_selected_accessory2_id"
+        android:visibility="gone"
+        android:text="None Selected"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/build_outfit_selected_accessory3_id"
+        android:visibility="gone"
+        android:text="None Selected"/>
 
 
     <ScrollView
@@ -36,194 +63,546 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/build_outfit_preview_top"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
+
+            <Button
+                android:id="@+id/build_outfit_select_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Select Top"/>
+
+            <ImageButton
+                android:id="@+id/build_outfit_preview_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
+
+            <Button
+                android:id="@+id/build_outfit_select_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Select Bottom"/>
+
+            <ImageButton
+                android:id="@+id/build_outfit_preview_shoes"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
+
+            <Button
+                android:id="@+id/build_outfit_select_shoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Select Shoes"/>
+
+            <ImageButton
+                android:id="@+id/build_outfit_preview_accessory1"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
+
+            <Button
+                android:id="@+id/build_outfit_select_accessory1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Select Accessory 1"/>
+
+            <ImageButton
+                android:id="@+id/build_outfit_preview_accessory2"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
+
+            <Button
+                android:id="@+id/build_outfit_select_accessory2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Select Accessory 2"/>
+
+            <ImageButton
+                android:id="@+id/build_outfit_preview_accessory3"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"/>
+
+            <Button
+                android:id="@+id/build_outfit_select_accessory3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Select Accessory 3"/>
+
+
             <TextView
-                android:id="@+id/outfitOnePiece"
+                android:id="@+id/build_outfit_mood_prompter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:rotation="0"
-                android:text="Outfit One Piece: " />
+                android:text="Mood:" />
+
             <Button
-                android:id="@+id/addOutfitOnePiece"
+                android:id="@+id/build_outfit_sad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:rotation="0"
                 android:rotationX="0"
                 android:rotationY="0"
-                android:text="Add One Piece to Outfit" />
-
-
-            <TextView
-                android:id="@+id/outfitTop"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:text="Outfit Top: " />
-
-    <Button
-        android:id="@+id/addOutfitTop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:text="Add Top to Outfit" />
-
-            <TextView
-                android:id="@+id/outfitBottomText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:text="Outfit Bottom: " />
+                android:text="Sad" />
 
             <Button
-                android:id="@+id/addOutfitBottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Add Bottom to Outfit" />
-
-            <TextView
-                android:id="@+id/outfitShoes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:text="Outfit Shoes: " />
-            <Button
-                android:id="@+id/addOutfitShoes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Add Shoes to Outfit" />
-
-            <TextView
-                android:id="@+id/outfitAccessories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:text="Outfit Accessories: " />
-            <Button
-                android:id="@+id/addOutfitAccessories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Add Accessories to Outfit" />
-
-    <TextView
-        android:id="@+id/clothingWeather"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Appropriate Weather: " />
-
-            <Button
-                android:id="@+id/summer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Summer" />
-            <Button
-                android:id="@+id/winter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Winter" />
-            <Button
-                android:id="@+id/spring"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Spring" />
-
-            <Button
-                android:id="@+id/autumn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Autumn" />
-
-    <TextView
-        android:id="@+id/clothingMood"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mood: " />
-            <Button
-                android:id="@+id/confident"
+                android:id="@+id/build_outfit_confident"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:rotation="0"
                 android:rotationX="0"
                 android:rotationY="0"
                 android:text="Confident" />
-            <Button
-                android:id="@+id/lazy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Lazy" />
-            <Button
-                android:id="@+id/spunky"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Spunky" />
-            <Button
-                android:id="@+id/professional"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Professional" />
-
-    <TextView
-        android:id="@+id/clothingTask"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="For What Task(s):  " />
-            <Button
-                android:id="@+id/party"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="party" />
-            <Button
-                android:id="@+id/work"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Work" />
-            <Button
-                android:id="@+id/relaxing"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:rotationX="0"
-                android:rotationY="0"
-                android:text="Relaxing" />
 
             <Button
-                android:id="@+id/saveOutfit"
+                android:id="@+id/build_outfit_relaxed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Relaxed" />
+
+            <Button
+                android:id="@+id/build_outfit_happy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Happy" />
+
+            <Button
+                android:id="@+id/build_outfit_no_emotion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="No Emotion" />
+
+            <TextView
+                android:id="@+id/build_outfit_temperature_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Temperature:" />
+
+            <Button
+                android:id="@+id/build_outfit_hot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Hot" />
+
+            <Button
+                android:id="@+id/build_outfit_warm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Warm" />
+
+            <Button
+                android:id="@+id/build_outfit_temperate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Temperate" />
+
+            <Button
+                android:id="@+id/build_outfit_cold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Cold" />
+
+            <Button
+                android:id="@+id/build_outfit_freezing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Freezing" />
+
+            <Button
+                android:id="@+id/build_outfit_no_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="No Temperature" />
+
+            <TextView
+                android:id="@+id/build_outfit_precipitation_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Precipitation:" />
+
+            <Button
+                android:id="@+id/build_outfit_clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Clear" />
+
+            <Button
+                android:id="@+id/build_outfit_cloudy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Cloudy" />
+
+            <Button
+                android:id="@+id/build_outfit_raining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Raining" />
+
+            <Button
+                android:id="@+id/build_outfit_snowing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Snowing" />
+
+            <Button
+                android:id="@+id/build_outfit_no_precipitation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="No Precipitation" />
+
+            <TextView
+                android:id="@+id/build_outfit_task_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Task:" />
+
+            <Button
+                android:id="@+id/build_outfit_business"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Business" />
+
+            <Button
+                android:id="@+id/build_outfit_labor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Labor" />
+
+            <Button
+                android:id="@+id/build_outfit_casual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Casual" />
+
+            <Button
+                android:id="@+id/build_outfit_party"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Party" />
+
+            <Button
+                android:id="@+id/build_outfit_elegant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Elegant" />
+
+            <Button
+                android:id="@+id/build_outfit_active"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Active" />
+
+            <Button
+                android:id="@+id/build_outfit_no_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="No Task" />
+
+            <TextView
+                android:id="@+id/build_outfit_color_prompter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:text="Color:" />
+
+            <Button
+                android:id="@+id/build_outfit_aqua"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Aqua" />
+
+            <Button
+                android:id="@+id/build_outfit_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Black" />
+
+            <Button
+                android:id="@+id/build_outfit_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Blue" />
+
+            <Button
+                android:id="@+id/build_outfit_brown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Brown" />
+
+            <Button
+                android:id="@+id/build_outfit_fuchsia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Fuchsia" />
+
+            <Button
+                android:id="@+id/build_outfit_grey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Grey" />
+
+            <Button
+                android:id="@+id/build_outfit_green"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Green" />
+
+            <Button
+                android:id="@+id/build_outfit_light_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Light Blue" />
+
+            <Button
+                android:id="@+id/build_outfit_lime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Lime" />
+
+            <Button
+                android:id="@+id/build_outfit_maroon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Maroon" />
+
+            <Button
+                android:id="@+id/build_outfit_navy_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Navy Blue" />
+
+            <Button
+                android:id="@+id/build_outfit_olive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Olive" />
+
+            <Button
+                android:id="@+id/build_outfit_orange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Orange" />
+
+            <Button
+                android:id="@+id/build_outfit_pink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Pink" />
+
+            <Button
+                android:id="@+id/build_outfit_purple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Purple" />
+
+            <Button
+                android:id="@+id/build_outfit_red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Red" />
+
+            <Button
+                android:id="@+id/build_outfit_silver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Silver" />
+
+            <Button
+                android:id="@+id/build_outfit_tan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Tan" />
+
+            <Button
+                android:id="@+id/build_outfit_teal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Teal" />
+
+            <Button
+                android:id="@+id/build_outfit_white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="White" />
+
+            <Button
+                android:id="@+id/build_outfit_yellow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="Yellow" />
+
+            <Button
+                android:id="@+id/build_outfit_no_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="0"
+                android:rotationX="0"
+                android:rotationY="0"
+                android:text="No Color" />
+
+            <Button
+                android:id="@+id/build_outfit_saveItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:rotation="0"
@@ -231,12 +610,10 @@
                 android:rotationY="0"
                 android:shadowColor="#3F51B5"
                 android:shadowDx="5"
-                android:shadowDy="5"
                 android:text="Save Outfit"
-                android:textColor="#673AB7"
-                android:textColorHint="#3F51B5"
-                app:backgroundTint="#FFFFFF" />
-</LinearLayout>
+                android:textColor="#3F51B5"
+                app:backgroundTint="#FDFCFC" />
+        </LinearLayout>
 
     </ScrollView>
 
