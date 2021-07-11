@@ -18,6 +18,11 @@ import java.util.ArrayList;
 
 public class BuildOutfitView extends AppCompatActivity {
     ImageButton topPreview;
+    ImageButton bottomPreview;
+    ImageButton shoesPreview;
+    ImageButton accessory1Preview;
+    ImageButton accessory2Preview;
+    ImageButton accessory3Preview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +32,7 @@ public class BuildOutfitView extends AppCompatActivity {
         topPreview = findViewById(R.id.build_outfit_preview_top);
         
         
-        TextView clothingMood = findViewById(R.id.build_outfit_selected_mood);
+        /*TextView clothingMood = findViewById(R.id.build_outfit_selected_mood);
         TextView clothingTemperature = findViewById(R.id.build_outfit_selected_temperature);
         TextView clothingPrecipitation = findViewById(R.id.build_outfit_selected_precipitation);
         TextView clothingTask = findViewById(R.id.build_outfit_selected_task);
@@ -356,6 +361,6 @@ public class BuildOutfitView extends AppCompatActivity {
                     colors.get(i).setVisibility(View.VISIBLE);
                 }
             }
-        });
+        });*/
     }
 }

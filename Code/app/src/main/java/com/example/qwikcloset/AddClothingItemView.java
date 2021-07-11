@@ -34,6 +34,8 @@ public class AddClothingItemView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addclothingitem);
 
+        TextView intPreview = findViewById(R.id.int_sort_preview);
+
         ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, PackageManager.PERMISSION_GRANTED);
 
         previewImage = findViewById(R.id.add_clothing_preview_image);
@@ -243,6 +245,14 @@ public class AddClothingItemView extends AppCompatActivity {
                 public void onClick(View v) {
                     clothingType.setText(tempButton.getText());
                     clothingTypePrompter.setText("(+) "  + clothingTypePrompter.getText());
+                    int[] intSortNumbers = LookUpMaps.map((String) clothingType.getText());
+                    if(intSortNumbers == null){
+                        intPreview.setText("Error");
+                    }
+                    else{
+                        String s = "" + intSortNumbers[0] + ", " + intSortNumbers[1] + ", " + intSortNumbers[2];
+                        intPreview.setText(s);
+                    }
                     for(int j = 0; j < clothingTypes.size(); ++j){
                         clothingTypes.get(j).setVisibility(View.GONE);
                     }
