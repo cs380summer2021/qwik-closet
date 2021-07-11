@@ -54,6 +54,45 @@
         android:visibility="gone"
         android:text="None Selected"/>
 
+    <TextView
+        android:id="@+id/int_sort_preview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:visibility="gone"
+        android:text="Clothing Type: None selected" />
+
+
+    <TextView
+        android:id="@+id/build_outfit_selected_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mood: None selected" />
+
+    <TextView
+        android:id="@+id/build_outfit_selected_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperature: None selected" />
+
+    <TextView
+        android:id="@+id/build_outfit_selected_precipitation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Precipitation: None selected" />
+
+    <TextView
+        android:id="@+id/build_outfit_selected_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Task: None selected" />
+
+    <TextView
+        android:id="@+id/build_outfit_selected_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color: None selected" />
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -602,7 +641,7 @@
                 android:text="No Color" />
 
             <Button
-                android:id="@+id/build_outfit_saveItem"
+                android:id="@+id/build_outfit_save_outfit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:rotation="0"
