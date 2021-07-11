@@ -166,6 +166,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
+    public ArrayList<Outfit> readOutfitCursor(Cursor cursor, Context context){
+        ArrayList<Outfit> list = new ArrayList<Outfit>();
+
+        if(cursor.moveToFirst()){
+            while(!cursor.isAfterLast()){
+                String top_str = cursor.getString(cursor.getColumnIndex("Top"));
+                String bottom_str = cursor.getString(cursor.getColumnIndex("Bottom"));
+                String shoes_str = cursor.getString(cursor.getColumnIndex("Shoes"));
+                String acc1_str = cursor.getString(cursor.getColumnIndex("ACC1"));
+                String acc2_str = cursor.getString(cursor.getColumnIndex("ACC2"));
+                String acc3_str = cursor.getString(cursor.getColumnIndex("ACC3"));
+                String mood = cursor.getString(cursor.getColumnIndex("Mood"));
+                String temperature = cursor.getString(cursor.getColumnIndex("Temperature"));
+                String precipitation = cursor.getString(cursor.getColumnIndex("Precipitation"));
+                String task = cursor.getString(cursor.getColumnIndex("Task"));
+                String color = cursor.getString(cursor.getColumnIndex("Color"));
+                Integer rating = cursor.getInt(cursor.getColumnIndex("Rating"));
+
+                ClothingItem top = getSpecificData_Clothing(top_str, context);
+                ClothingItem bottom = getSpecificData_Clothing(bottom_str, context);
+                ClothingItem shoes = getSpecificData_Clothing(shoes_str, context);
+                ClothingItem acc1 = getSpecificData_Clothing(acc1_str, context);
+                ClothingItem acc2 = getSpecificData_Clothing(acc2_str, context);
+                ClothingItem acc3 = getSpecificData_Clothing(acc3_str, context);
+
+
+                list.add(new Outfit(top, bottom, shoes, acc1, acc2, acc3, mood, temperature, precipitation, task, color, rating));
+
+                cursor.moveToNext();
+            }
+        }
+        cursor.close();
+        return list;
+    }
+
+
     public ArrayList<ClothingItem> getAllData_Clothing(Context context) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_1, null);
