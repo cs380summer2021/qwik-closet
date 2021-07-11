@@ -453,13 +453,6 @@
                 android:text="No Emotion" />
 
             <TextView
-                android:id="@+id/add_clothing_weather_prompter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:rotation="0"
-                android:text="Weather:" />
-
-            <TextView
                 android:id="@+id/add_clothing_temperature_prompter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

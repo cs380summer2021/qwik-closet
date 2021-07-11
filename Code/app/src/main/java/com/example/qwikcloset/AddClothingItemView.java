@@ -1,5 +1,6 @@
 package com.example.qwikcloset;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class AddClothingItemView extends AppCompatActivity {
         TextView clothingTemperature = findViewById(R.id.add_clothing_selected_temperature);
         TextView clothingPrecipitation = findViewById(R.id.add_clothing_selected_precipitation);
         TextView clothingTask = findViewById(R.id.add_clothing_selected_task);
+        TextView clothingColor = findViewById(R.id.add_clothing_selected_color);
 
         Button buttonTakePicture = findViewById(R.id.add_clothing_take_picture);
         Button buttonAddImage = findViewById(R.id.add_clothing_add_image);
@@ -191,7 +193,7 @@ public class AddClothingItemView extends AppCompatActivity {
         colors.add(buttonGrey);
         colors.add(buttonGreen);
         colors.add(buttonLightBlue);
-        colors.add(buttonLime;
+        colors.add(buttonLime);
         colors.add(buttonMaroon);
         colors.add(buttonNavyBlue);
         colors.add(buttonOlive);
@@ -205,5 +207,173 @@ public class AddClothingItemView extends AppCompatActivity {
         colors.add(buttonWhite);
         colors.add(buttonYellow);
         colors.add(buttonNoColor);
+
+        for(int i = 0; i < clothingTypes.size(); ++i){
+            Button tempButton = clothingTypes.get(i);
+            tempButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clothingType.setText(tempButton.getText());
+                    clothingTypePrompter.setText("(+) "  + clothingTypePrompter.getText());
+                    for(int j = 0; j < clothingTypes.size(); ++j){
+                        clothingTypes.get(j).setVisibility(View.GONE);
+                    }
+                }
+            });
+        }
+
+        clothingTypePrompter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clothingType.setText("Clothing Type: None Selected");
+                String s = (String) clothingTypePrompter.getText();
+                s = s.split(" ", 2)[1];
+                clothingTypePrompter.setText(s);
+
+                for(int i = 0; i < clothingTypes.size(); ++i){
+                    clothingTypes.get(i).setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        for(int i = 0; i < moods.size(); ++i){
+            Button tempButton = moods.get(i);
+            tempButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clothingMood.setText(tempButton.getText());
+                    moodPrompter.setText("(+) "  + clothingMood.getText());
+                    for(int j = 0; j < moods.size(); ++j){
+                        moods.get(j).setVisibility(View.GONE);
+                    }
+                }
+            });
+        }
+
+        moodPrompter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clothingMood.setText("Mood: None Selected");
+                String s = (String) moodPrompter.getText();
+                s = s.split(" ", 2)[1];
+                moodPrompter.setText(s);
+
+                for(int i = 0; i < moods.size(); ++i){
+                    moods.get(i).setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        for(int i = 0; i < temperatures.size(); ++i){
+            Button tempButton = temperatures.get(i);
+            tempButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clothingTemperature.setText(tempButton.getText());
+                    temperaturePrompter.setText("(+) "  + temperaturePrompter.getText());
+                    for(int j = 0; j < temperatures.size(); ++j){
+                        temperatures.get(j).setVisibility(View.GONE);
+                    }
+                }
+            });
+        }
+
+        temperaturePrompter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clothingTemperature.setText("Temperature: None Selected");
+                String s = (String) temperaturePrompter.getText();
+                s = s.split(" ", 2)[1];
+                temperaturePrompter.setText(s);
+
+                for(int i = 0; i < temperatures.size(); ++i){
+                    temperatures.get(i).setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        for(int i = 0; i < precipitations.size(); ++i){
+            Button tempButton = precipitations.get(i);
+            tempButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clothingPrecipitation.setText(tempButton.getText());
+                    precipitationPrompter.setText("(+) "  + precipitationPrompter.getText());
+                    for(int j = 0; j < precipitations.size(); ++j){
+                        precipitations.get(j).setVisibility(View.GONE);
+                    }
+                }
+            });
+        }
+
+        precipitationPrompter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clothingPrecipitation.setText("Precipitation: None Selected");
+                String s = (String) precipitationPrompter.getText();
+                s = s.split(" ", 2)[1];
+                precipitationPrompter.setText(s);
+
+                for(int i = 0; i < precipitations.size(); ++i){
+                    precipitations.get(i).setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        for(int i = 0; i < tasks.size(); ++i){
+            Button tempButton = tasks.get(i);
+            tempButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clothingTask.setText(tempButton.getText());
+                    taskPrompter.setText("(+) "  + taskPrompter.getText());
+                    for(int j = 0; j < tasks.size(); ++j){
+                        tasks.get(j).setVisibility(View.GONE);
+                    }
+                }
+            });
+        }
+
+        taskPrompter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clothingTask.setText("Task: None Selected");
+                String s = (String) taskPrompter.getText();
+                s = s.split(" ", 2)[1];
+                taskPrompter.setText(s);
+
+                for(int i = 0; i < tasks.size(); ++i){
+                    tasks.get(i).setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        for(int i = 0; i < colors.size(); ++i){
+            Button tempButton = colors.get(i);
+            tempButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clothingColor.setText(tempButton.getText());
+                    colorPrompter.setText("(+) "  + colorPrompter.getText());
+                    for(int j = 0; j < colors.size(); ++j){
+                        colors.get(j).setVisibility(View.GONE);
+                    }
+                }
+            });
+        }
+
+        colorPrompter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clothingColor.setText("Color: None Selected");
+                String s = (String) colorPrompter.getText();
+                s = s.split(" ", 2)[1];
+                colorPrompter.setText(s);
+
+                for(int i = 0; i < colors.size(); ++i){
+                    colors.get(i).setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 }
