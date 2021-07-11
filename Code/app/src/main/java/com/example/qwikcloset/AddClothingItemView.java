@@ -5,6 +5,8 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -40,6 +43,13 @@ public class AddClothingItemView extends AppCompatActivity {
         TextView clothingPrecipitation = findViewById(R.id.add_clothing_selected_precipitation);
         TextView clothingTask = findViewById(R.id.add_clothing_selected_task);
         TextView clothingColor = findViewById(R.id.add_clothing_selected_color);
+
+        ArrayList<String> defaultAnswers = new ArrayList<String>();
+        defaultAnswers.add((String) clothingMood.getText());
+        defaultAnswers.add((String) clothingTemperature.getText());
+        defaultAnswers.add((String) clothingPrecipitation.getText());
+        defaultAnswers.add((String) clothingTask.getText());
+        defaultAnswers.add((String) clothingColor.getText());
 
         Button buttonTakePicture = findViewById(R.id.add_clothing_take_picture);
         Button buttonAddImage = findViewById(R.id.add_clothing_add_image);
@@ -326,7 +336,36 @@ public class AddClothingItemView extends AppCompatActivity {
             buttonSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //TODO: HERE
+                    int[] categoryNumbers = LookUpMaps.map((String) clothingType.getText());
+                    ArrayList<String> list = new ArrayList<String>();
+                    list.add((String) clothingMood.getText());
+                    list.add((String) clothingTemperature.getText());
+                    list.add((String) clothingPrecipitation.getText());
+                    list.add((String) clothingTask.getText());
+                    list.add((String) clothingColor.getText());
+                    Drawable drawable = previewImage.getDrawable();
+
+                    if(categoryNumbers == null){
+                        Toast.makeText(AddClothingItemView.this, "You need to fill out all categories", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    for(int i = 0; i < list.size(); ++i){
+                        if(list.get(i) == null || list.get(i).equals(defaultAnswers.get(i))){
+                            Toast.makeText(AddClothingItemView.this, "You need to fill out all categories", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+
+                    if (drawable == null){
+                        Toast.makeText(AddClothingItemView.this, "You need to insert a picture.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+                    myDb.insertData_Clothing(("" + categoryNumbers[0]), ("" + categoryNumbers[1]), ("" + categoryNumbers[2]), list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), bitmapDrawable.getBitmap());
+                    Intent intent = new Intent(AddClothingItemView.this, MainMenuView.class);
+                    startActivity(intent);
                 }
             });
         }
