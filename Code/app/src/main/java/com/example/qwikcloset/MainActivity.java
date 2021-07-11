@@ -35,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         myDb = new DatabaseHelper(this);
 
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
-
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, PackageManager.PERMISSION_GRANTED);
         Button buttonEnterCloset = (Button) findViewById(R.id.enterYourCloset);
 
         buttonEnterCloset.setOnClickListener(new View.OnClickListener() {

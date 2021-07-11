@@ -1,23 +1,39 @@
 package com.example.qwikcloset;
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class AddClothingItemView extends AppCompatActivity {
+    private static int RESULT_LOAD_IMAGE = 1;
+    private static int CAMERA_PIC_REQUEST = 1337;
+    public ImageView previewImage;
+    public DatabaseHelper myDb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addclothingitem);
 
-        ImageView previewImage = findViewById(R.id.add_clothing_preview_image);
+        ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, PackageManager.PERMISSION_GRANTED);
+
+        previewImage = findViewById(R.id.add_clothing_preview_image);
         TextView clothingType = findViewById(R.id.add_clothing_selected_clothing_type);
         TextView clothingMood = findViewById(R.id.add_clothing_selected_mood);
         TextView clothingTemperature = findViewById(R.id.add_clothing_selected_temperature);
@@ -208,6 +224,8 @@ public class AddClothingItemView extends AppCompatActivity {
         colors.add(buttonYellow);
         colors.add(buttonNoColor);
 
+        Button buttonSave = findViewById(R.id.add_clothing_saveItem);
+
         for(int i = 0; i < clothingTypes.size(); ++i){
             Button tempButton = clothingTypes.get(i);
             tempButton.setOnClickListener(new View.OnClickListener() {
@@ -304,6 +322,13 @@ public class AddClothingItemView extends AppCompatActivity {
                     }
                 }
             });
+            myDb = new DatabaseHelper(this);
+            buttonSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //TODO: HERE
+                }
+            });
         }
 
         precipitationPrompter.setOnClickListener(new View.OnClickListener() {
@@ -375,5 +400,46 @@ public class AddClothingItemView extends AppCompatActivity {
                 }
             }
         });
+
+        buttonAddImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent, RESULT_LOAD_IMAGE);
+            }
+        });
+
+        buttonTakePicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_PIC_REQUEST);
+            }
+        });
+
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null){
+            Uri selectedImage = data.getData();
+            String[] filePathColumn = { MediaStore.Images.Media.DATA};
+            Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+            cursor.moveToFirst();
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            previewImage.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+            cursor.close();
+            return;
+        }
+        else if(requestCode == CAMERA_PIC_REQUEST){
+            Bitmap image = (Bitmap) data.getExtras().get("data");
+            previewImage.setImageBitmap(image);
+            return;
+        }
+    }
+
+
 }
