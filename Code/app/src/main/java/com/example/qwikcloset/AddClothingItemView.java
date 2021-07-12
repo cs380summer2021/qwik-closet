@@ -280,7 +280,7 @@ public class AddClothingItemView extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     clothingMood.setText(tempButton.getText());
-                    moodPrompter.setText("(+) "  + clothingMood.getText());
+                    moodPrompter.setText("(+) "  + moodPrompter.getText());
                     for(int j = 0; j < moods.size(); ++j){
                         moods.get(j).setVisibility(View.GONE);
                     }

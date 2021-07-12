@@ -30,7 +30,7 @@ public class LookUpMaps{
 
     static String map(int generalCategory, int subCategory, int clothingType){
         try{
-            return clothing[generalCategory][subCategory][clothingType];
+            return clothing[(generalCategory - 1)][(subCategory - 1)][(clothingType - 1)];
         }
         catch (Exception e){
             return "ERROR";

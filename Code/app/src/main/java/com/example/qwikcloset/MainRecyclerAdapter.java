@@ -17,11 +17,12 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
 
     private Context context;
     private List<AllCategory> allCategoryList;
+    private String callState;
 
-    public MainRecyclerAdapter(Context context, List<AllCategory> allCategoryList) {
+    public MainRecyclerAdapter(Context context, List<AllCategory> allCategoryList, String callState) {
         this.context = context;
         this.allCategoryList = allCategoryList;
-
+        this.callState = callState;
     }
 
     @NonNull
@@ -66,7 +67,7 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     }
 
     private void setCatItemRecycler(RecyclerView recyclerView, List<CategoryItem> categoryItemList){
-        CategoryItemRecyclerAdapter itemRecyclerAdapter = new CategoryItemRecyclerAdapter(context, categoryItemList);
+        CategoryItemRecyclerAdapter itemRecyclerAdapter = new CategoryItemRecyclerAdapter(context, categoryItemList, callState);
         recyclerView.setLayoutManager(new LinearLayoutManager(context, RecyclerView.HORIZONTAL,false ));
         recyclerView.setAdapter(itemRecyclerAdapter);
 

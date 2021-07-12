@@ -1,5 +1,6 @@
 package com.example.qwikcloset;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -11,8 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BuildOutfitView extends AppCompatActivity {
     ImageButton topPreview;
@@ -21,7 +25,27 @@ public class BuildOutfitView extends AppCompatActivity {
     ImageButton accessory1Preview;
     ImageButton accessory2Preview;
     ImageButton accessory3Preview;
+
     DatabaseHelper myDb;
+    int LAUNCH_SECOND_ACTIVITY = 1;
+
+    ArrayList<ImageButton> previews;
+    ArrayList<Button> setButtons;
+    ArrayList<TextView> ids;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == LAUNCH_SECOND_ACTIVITY){
+            if(resultCode == Activity.RESULT_OK){
+                ClothingItem clothingItem = myDb.getSpecificData_Clothing(data.getStringExtra("result"), this);
+                int slot = Integer.parseInt(data.getStringExtra("slot"));
+                ids.get(slot).setText(("" + clothingItem.id));
+                previews.get(slot).setImageDrawable(clothingItem.picture);
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +58,13 @@ public class BuildOutfitView extends AppCompatActivity {
         accessory1Preview = findViewById(R.id.build_outfit_preview_accessory1);
         accessory2Preview = findViewById(R.id.build_outfit_preview_accessory2);
         accessory3Preview = findViewById(R.id.build_outfit_preview_accessory3);
+        previews = new ArrayList<ImageButton>();
+        previews.add(topPreview);
+        previews.add(bottomPreview);
+        previews.add(shoesPreview);
+        previews.add(accessory1Preview);
+        previews.add(accessory2Preview);
+        previews.add(accessory3Preview);
 
         Button buttonSetTop = findViewById(R.id.build_outfit_select_top);
         Button buttonSetBottom = findViewById(R.id.build_outfit_select_bottom);
@@ -41,13 +72,60 @@ public class BuildOutfitView extends AppCompatActivity {
         Button buttonSetAccessory1 = findViewById(R.id.build_outfit_select_accessory1);
         Button buttonSetAccessory2 = findViewById(R.id.build_outfit_select_accessory2);
         Button buttonSetAccessory3 = findViewById(R.id.build_outfit_select_accessory3);
+        setButtons = new ArrayList<Button>();
+        setButtons.add(buttonSetTop);
+        setButtons.add(buttonSetBottom);
+        setButtons.add(buttonSetShoes);
+        setButtons.add(buttonSetAccessory1);
+        setButtons.add(buttonSetAccessory2);
+        setButtons.add(buttonSetAccessory3);
 
         TextView topId = findViewById(R.id.build_outfit_selected_top_id);
         TextView bottomId = findViewById(R.id.build_outfit_selected_bottom_id);
         TextView shoesId = findViewById(R.id.build_outfit_selected_shoe_id);
-        TextView accessory1Id = findViewById(R.id.build_outfit_selected_accessory3_id);
+        TextView accessory1Id = findViewById(R.id.build_outfit_selected_accessory1_id);
         TextView accessory2Id = findViewById(R.id.build_outfit_selected_accessory2_id);
         TextView accessory3Id = findViewById(R.id.build_outfit_selected_accessory3_id);
+        ids = new ArrayList<TextView>();
+        ids.add(topId);
+        ids.add(bottomId);
+        ids.add(shoesId);
+        ids.add(accessory1Id);
+        ids.add(accessory2Id);
+        ids.add(accessory3Id);
+
+        for(int i = 0; i < ids.size(); ++i){
+            ids.get(i).setVisibility(View.VISIBLE);
+        }
+
+
+        for(int i = 0; i < setButtons.size(); ++i){
+            Button tempButton = setButtons.get(i);
+            int finalI = i;
+            tempButton.setOnClickListener(new View.OnClickListener() {
+            String[] categories = new String[]{"1", "2", "3", "4", "4", "4"};
+            String s = categories[finalI];
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(BuildOutfitView.this, BuildOutfitClothingSelectionView.class);
+                    intent.putExtra("id", s);
+                    intent.putExtra("slot", (""+ finalI));
+                    startActivityForResult(intent, LAUNCH_SECOND_ACTIVITY);
+                }
+            });
+        }
+
+        for(int i = 0; i < previews.size(); ++i){
+            ImageButton tempButton = previews.get(i);
+            TextView tempText = ids.get(i);
+            tempButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    tempButton.setImageResource(android.R.color.transparent);
+                    tempText.setText("None Selected");
+                }
+            });
+        }
 
 
         TextView clothingMood = findViewById(R.id.build_outfit_selected_mood);
@@ -55,6 +133,12 @@ public class BuildOutfitView extends AppCompatActivity {
         TextView clothingPrecipitation = findViewById(R.id.build_outfit_selected_precipitation);
         TextView clothingTask = findViewById(R.id.build_outfit_selected_task);
         TextView clothingColor = findViewById(R.id.build_outfit_selected_color);
+        ArrayList<TextView> outfitProperties = new ArrayList<>();
+        outfitProperties.add(clothingMood);
+        outfitProperties.add(clothingTemperature);
+        outfitProperties.add(clothingPrecipitation);
+        outfitProperties.add(clothingTask);
+        outfitProperties.add(clothingColor);
 
         ArrayList<String> defaultAnswers = new ArrayList<String>();
         defaultAnswers.add((String) clothingMood.getText());
@@ -177,7 +261,7 @@ public class BuildOutfitView extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     clothingMood.setText(tempButton.getText());
-                    moodPrompter.setText("(+) "  + clothingMood.getText());
+                    moodPrompter.setText("(+) "  + moodPrompter.getText());
                     for(int j = 0; j < moods.size(); ++j){
                         moods.get(j).setVisibility(View.GONE);
                     }
@@ -239,40 +323,50 @@ public class BuildOutfitView extends AppCompatActivity {
                     }
                 }
             });
+
             myDb = new DatabaseHelper(this);
             buttonSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //int[] categoryNumbers = LookUpMaps.map((String) clothingType.getText());
                     ArrayList<String> list = new ArrayList<String>();
-                    list.add((String) clothingMood.getText());
-                    list.add((String) clothingTemperature.getText());
-                    list.add((String) clothingPrecipitation.getText());
-                    list.add((String) clothingTask.getText());
-                    list.add((String) clothingColor.getText());
-                    //Drawable drawable = previewImage.getDrawable();
+                    for(int i = 0; i < ids.size(); ++i){
+                        if("None Selected".equals((String) ids.get(i).getText())){
+                            list.add("-1");
+                            continue;
+                        }
+                        list.add((String) ids.get(i).getText());
+                    }
 
-                    /*if(categoryNumbers == null){
-                        Toast.makeText(BuildOutfitView.this, "You need to fill out all categories", Toast.LENGTH_SHORT).show();
+                    if(list.get(0) == null || list.get(0) == "None Selected"){
+                        Toast.makeText(BuildOutfitView.this, "You need to select a top", Toast.LENGTH_SHORT).show();
                         return;
-                    }*/
+                    }
+                    if(list.get(1) == null || list.get(1) == "None Selected"){
+                        ClothingItem temp = myDb.getSpecificData_Clothing(list.get(1), BuildOutfitView.this);
+                        if(!temp.category.equals("1") || !temp.subCategory.equals("2")){
+                            Toast.makeText(BuildOutfitView.this, "Dress not selected, bottom required.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                    if(list.get(2) == null || list.get(2) == "None Selected"){
+                        Toast.makeText(BuildOutfitView.this, "You need to select a shoe.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-                    for(int i = 0; i < list.size(); ++i){
-                        if(list.get(i) == null || list.get(i).equals(defaultAnswers.get(i))){
-                            Toast.makeText(BuildOutfitView.this, "You need to fill out all categories", Toast.LENGTH_SHORT).show();
+                    for(int i = 0; i < outfitProperties.size(); ++i){
+                        if(defaultAnswers.get(i).equals((String) outfitProperties.get(i).getText())){
+                            Toast.makeText(BuildOutfitView.this, "You need to select the other properties.", Toast.LENGTH_SHORT).show();
                             return;
                         }
                     }
 
-                    /*if (drawable == null){
-                        Toast.makeText(BuildOutfitView.this, "You need to insert a picture.", Toast.LENGTH_SHORT).show();
-                        return;
-                    }*/
 
-                    //BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+
                     //myDb.insertData_Clothing(("" + categoryNumbers[0]), ("" + categoryNumbers[1]), ("" + categoryNumbers[2]), list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), bitmapDrawable.getBitmap());
-                    //Intent intent = new Intent(BuildOutfitView.this, MainMenuView.class);
-                    //startActivity(intent);
+                    myDb.insertData_Outfit(new Integer(list.get(0)), new Integer(list.get(1)), new Integer(list.get(2)), new Integer(list.get(3)), new Integer(list.get(4)), new Integer(list.get(5)), (String) outfitProperties.get(0).getText(), (String) outfitProperties.get(1).getText(), (String) outfitProperties.get(2).getText(), (String) outfitProperties.get(3).getText(), (String) outfitProperties.get(4).getText(), new Integer(0));
+                    Intent intent = new Intent(BuildOutfitView.this, MainMenuView.class);
+                    startActivity(intent);
                 }
             });
         }

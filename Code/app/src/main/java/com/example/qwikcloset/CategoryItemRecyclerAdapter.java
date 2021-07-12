@@ -1,18 +1,16 @@
 package com.example.qwikcloset;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -21,10 +19,12 @@ public class CategoryItemRecyclerAdapter extends RecyclerView.Adapter<CategoryIt
 
     private Context context;
     private List<CategoryItem> categoryItemList;
+    private String callState;
 
-    public CategoryItemRecyclerAdapter(Context context, List<CategoryItem> categoryItemList) {
+    public CategoryItemRecyclerAdapter(Context context, List<CategoryItem> categoryItemList, String callState) {
         this.context = context;
         this.categoryItemList = categoryItemList;
+        this.callState = callState;
     }
 
     @NonNull
@@ -36,18 +36,39 @@ public class CategoryItemRecyclerAdapter extends RecyclerView.Adapter<CategoryIt
 
     @Override
     public void onBindViewHolder(@NonNull  CategoryItemRecyclerAdapter.CategoryItemViewHolder holder, int position) {
-        holder.itemImage.setImageDrawable(categoryItemList.get(position).getImageUrl());
-        holder.itemImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ClothingItemView.class);
-                int j = position;
-                List<CategoryItem> list = categoryItemList;
-                CategoryItem categoryItem = categoryItemList.get(position);
-                intent.putExtra("id", categoryItemList.get(position).itemId.toString());
-                context.startActivity(intent);
-            }
-        });
+        holder.itemImage.setImageDrawable(categoryItemList.get(position).getImage());
+
+        switch (callState){
+            case "ClosetView":
+            holder.itemImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, ClothingItemView.class);
+                    int j = position;
+                    List<CategoryItem> list = categoryItemList;
+                    CategoryItem categoryItem = categoryItemList.get(position);
+                    intent.putExtra("id", categoryItemList.get(position).itemId.toString());
+                    context.startActivity(intent);
+                }
+            });
+                break;
+            case "BuildOutfitView":
+                holder.itemImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent();
+                        intent.putExtra("result", categoryItemList.get(position).itemId.toString());
+                        Activity activity = (Activity) context;
+                        if(activity.getIntent().hasExtra("slot")){
+                            intent.putExtra("slot", activity.getIntent().getStringExtra("slot"));
+                        }
+                        activity.setResult(Activity.RESULT_OK, intent);
+                        activity.finish();
+                    }
+                });
+                break;
+            default:
+        }
     }
 
     @Override

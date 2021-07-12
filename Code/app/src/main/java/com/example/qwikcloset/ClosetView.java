@@ -59,7 +59,7 @@ public class ClosetView extends AppCompatActivity {
         allCategoryList.add(new AllCategory("Shoes", categoryItemList3));
         allCategoryList.add(new AllCategory("Accessories", categoryItemList4));
 
-        setMainCategoryRecycler(allCategoryList);
+        setMainCategoryRecycler(allCategoryList, "ClosetView");
 
         Button buttonNavigateToStart = (Button) findViewById(R.id.returnToMainMenu);
 
@@ -74,14 +74,13 @@ public class ClosetView extends AppCompatActivity {
         });
     }
 
-    private void setMainCategoryRecycler(List<AllCategory> allCategoryList){
+    private void setMainCategoryRecycler(List<AllCategory> allCategoryList, String callState){
 
         mainCategoryRecycler = findViewById(R.id.main_recycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(  this);
         mainCategoryRecycler.setLayoutManager(layoutManager);
-        mainRecyclerAdapter = new MainRecyclerAdapter(  this, allCategoryList);
+        mainRecyclerAdapter = new MainRecyclerAdapter(  this, allCategoryList, callState);
         mainCategoryRecycler.setAdapter(mainRecyclerAdapter);
-
 
     }
 

@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -116,11 +117,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean insertData_Outfit(int tops, int bottoms, int shoes, int acc1, int acc2, int acc3,  String mood, String temperature, String precipitation, String task, String color, int rating) {
+    public boolean insertData_Outfit(Integer tops, Integer bottoms, Integer shoes, Integer acc1, Integer acc2, Integer acc3,  String mood, String temperature, String precipitation, String task, String color, Integer rating) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("Top", tops);
-        contentValues.put("Bottom", bottoms);
+        contentValues.put("Tops", tops);
+        contentValues.put("Bottoms", bottoms);
         contentValues.put("Shoes", shoes);
         contentValues.put("ACC1", acc1);
         contentValues.put("ACC2", acc2);
@@ -199,6 +200,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return list;
+    }
+
+    public ArrayList<ClothingItem> categoryFilterClothingRetrieval (String category, Context context){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_1 + " WHERE CATEGORY = ?", new String[]{category});
+        return readClothingCursor(cursor, context);
     }
 
     public ClothingItem AllFilter(String mood, String temperature, String precipitation, String task, String color, Context context) {

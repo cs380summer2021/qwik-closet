@@ -20,7 +20,7 @@ public class CategoryItem {
         this.itemId = itemId;
     }
 
-    public Drawable getImageUrl() {
+    public Drawable getImage() {
         return drawable;
     }
 
