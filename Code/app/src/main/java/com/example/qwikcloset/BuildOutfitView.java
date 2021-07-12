@@ -94,9 +94,9 @@ public class BuildOutfitView extends AppCompatActivity {
         ids.add(accessory2Id);
         ids.add(accessory3Id);
 
-        for(int i = 0; i < ids.size(); ++i){
+        /*for(int i = 0; i < ids.size(); ++i){
             ids.get(i).setVisibility(View.VISIBLE);
-        }
+        }*/
 
 
         for(int i = 0; i < setButtons.size(); ++i){
@@ -338,18 +338,18 @@ public class BuildOutfitView extends AppCompatActivity {
                         list.add((String) ids.get(i).getText());
                     }
 
-                    if(list.get(0) == null || list.get(0) == "None Selected"){
+                    if(list.get(0) == null || list.get(0) == "None Selected" || list.get(0) == "-1"){
                         Toast.makeText(BuildOutfitView.this, "You need to select a top", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    if(list.get(1) == null || list.get(1) == "None Selected"){
+                    if(list.get(1) == null || list.get(1) == "None Selected" || list.get(1) == "-1"){
                         ClothingItem temp = myDb.getSpecificData_Clothing(list.get(1), BuildOutfitView.this);
                         if(!temp.category.equals("1") || !temp.subCategory.equals("2")){
                             Toast.makeText(BuildOutfitView.this, "Dress not selected, bottom required.", Toast.LENGTH_SHORT).show();
                             return;
                         }
                     }
-                    if(list.get(2) == null || list.get(2) == "None Selected"){
+                    if(list.get(2) == null || list.get(2) == "None Selected" || list.get(0) == "-1"){
                         Toast.makeText(BuildOutfitView.this, "You need to select a shoe.", Toast.LENGTH_SHORT).show();
                         return;
                     }

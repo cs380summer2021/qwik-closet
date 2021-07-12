@@ -172,12 +172,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()){
             while(!cursor.isAfterLast()){
-                String top_str = cursor.getString(cursor.getColumnIndex("Top"));
-                String bottom_str = cursor.getString(cursor.getColumnIndex("Bottom"));
-                String shoes_str = cursor.getString(cursor.getColumnIndex("Shoes"));
-                String acc1_str = cursor.getString(cursor.getColumnIndex("ACC1"));
-                String acc2_str = cursor.getString(cursor.getColumnIndex("ACC2"));
-                String acc3_str = cursor.getString(cursor.getColumnIndex("ACC3"));
+                String id = cursor.getString(cursor.getColumnIndex("ID"));
+                Integer top_Integer = new Integer(cursor.getString(cursor.getColumnIndex("Tops")));
+                Integer bottom_Integer = new Integer(cursor.getString(cursor.getColumnIndex("Bottoms")));
+                Integer shoes_Integer = new Integer(cursor.getString(cursor.getColumnIndex("Shoes")));
+                Integer acc1_Integer = new Integer(cursor.getString(cursor.getColumnIndex("ACC1")));
+                Integer acc2_Integer = new Integer(cursor.getString(cursor.getColumnIndex("ACC2")));
+                Integer acc3_Integer = new Integer(cursor.getString(cursor.getColumnIndex("ACC3")));
                 String mood = cursor.getString(cursor.getColumnIndex("Mood"));
                 String temperature = cursor.getString(cursor.getColumnIndex("Temperature"));
                 String precipitation = cursor.getString(cursor.getColumnIndex("Precipitation"));
@@ -185,15 +186,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String color = cursor.getString(cursor.getColumnIndex("Color"));
                 Integer rating = cursor.getInt(cursor.getColumnIndex("Rating"));
 
-                ClothingItem top = getSpecificData_Clothing(top_str, context);
-                ClothingItem bottom = getSpecificData_Clothing(bottom_str, context);
-                ClothingItem shoes = getSpecificData_Clothing(shoes_str, context);
-                ClothingItem acc1 = getSpecificData_Clothing(acc1_str, context);
-                ClothingItem acc2 = getSpecificData_Clothing(acc2_str, context);
-                ClothingItem acc3 = getSpecificData_Clothing(acc3_str, context);
+                ClothingItem top = getSpecificData_Clothing(top_Integer.toString(), context);
+                ClothingItem bottom = getSpecificData_Clothing(bottom_Integer.toString(), context);
+                ClothingItem shoes = getSpecificData_Clothing(shoes_Integer.toString(), context);
+                ClothingItem acc1 = getSpecificData_Clothing(acc1_Integer.toString(), context);
+                ClothingItem acc2 = getSpecificData_Clothing(acc2_Integer.toString(), context);
+                ClothingItem acc3 = getSpecificData_Clothing(acc3_Integer.toString(), context);
 
 
-                list.add(new Outfit(top, bottom, shoes, acc1, acc2, acc3, mood, temperature, precipitation, task, color, rating));
+                list.add(new Outfit(id, top, bottom, shoes, acc1, acc2, acc3, mood, temperature, precipitation, task, color, rating));
 
                 cursor.moveToNext();
             }

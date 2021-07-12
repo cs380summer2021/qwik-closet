@@ -1,6 +1,7 @@
 package com.example.qwikcloset;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -33,6 +34,8 @@ public class BuildOutfitClothingSelectionView extends AppCompatActivity {
 
         myDb = new DatabaseHelper(this);
         getIncomingIntent();
+
+        findViewById(R.id.returnToMainMenu).setVisibility(View.GONE);
 
     }
 

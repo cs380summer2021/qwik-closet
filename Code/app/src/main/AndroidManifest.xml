@@ -29,6 +29,8 @@
         <activity android:name=".AddClothingItemView" />
         <activity android:name=".BuildOutfitView" />
         <activity android:name=".BuildOutfitClothingSelectionView" />
+        <activity android:name=".OutfitGalleryView" />
+        <activity android:name=".OutfitView" />
     </application>
 
 </manifest>

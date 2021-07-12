@@ -1,6 +1,9 @@
 package com.example.qwikcloset;
 
+import java.util.ArrayList;
+
 public class Outfit {
+    String id;
     ClothingItem top;
     ClothingItem bottom;
     ClothingItem shoes;
@@ -13,9 +16,11 @@ public class Outfit {
     String task;
     String color;
     Integer rating;
+    ArrayList<ClothingItem> clothing;
 
 
-    public Outfit(ClothingItem top, ClothingItem bottom, ClothingItem shoes, ClothingItem acc1, ClothingItem acc2, ClothingItem acc3, String mood, String temperature, String precipitation, String task, String color, Integer rating){
+    public Outfit(String id, ClothingItem top, ClothingItem bottom, ClothingItem shoes, ClothingItem acc1, ClothingItem acc2, ClothingItem acc3, String mood, String temperature, String precipitation, String task, String color, Integer rating){
+        this.id = id;
         this.top = top;
         this.bottom = bottom;
         this.shoes = shoes;
@@ -29,9 +34,17 @@ public class Outfit {
         this.color = color;
         this.rating = rating;
 
+        clothing = new ArrayList<>();
+        clothing.add(top);
+        clothing.add(bottom);
+        clothing.add(shoes);
+        clothing.add(accessory1);
+        clothing.add(accessory2);
+        clothing.add(accessory3);
     }
 
     public Outfit(){
+        this.id = null;
         this.top = null;
         this.bottom = null;
         this.shoes = null;
@@ -46,5 +59,4 @@ public class Outfit {
         this.rating = null;
     }
 
-    //TODO: Make a method to store the data into the database
 }

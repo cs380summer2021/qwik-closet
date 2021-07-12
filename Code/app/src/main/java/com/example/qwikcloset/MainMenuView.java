@@ -47,7 +47,7 @@ public class MainMenuView extends AppCompatActivity {
         buttonViewOutfits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenuView.this, OutfitsView.class);
+                Intent intent = new Intent(MainMenuView.this, OutfitGalleryView.class);
                 startActivity(intent);
             }
         });

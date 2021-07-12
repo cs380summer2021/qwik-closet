@@ -1,0 +1,126 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:id="@+id/outfit_view_item_layout"
+    tools:context=".BuildOutfitView">
+
+    <TextView
+        android:id="@+id/outfit_view_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Outfit"
+        android:textSize="24sp" />
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/outfit_view_preview_top"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tops1"/>
+
+            <ImageView
+                android:id="@+id/outfit_view_preview_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bottoms1"/>
+
+            <ImageView
+                android:id="@+id/outfit_view_preview_shoes"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/shoes1"/>
+
+            <ImageView
+                android:id="@+id/outfit_view_preview_accessory1"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/accessories1"/>
+
+            <ImageView
+                android:id="@+id/outfit_view_preview_accessory2"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/accessories1"/>
+
+            <ImageView
+                android:id="@+id/outfit_view_preview_accessory3"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/accessories1"/>
+
+            <TextView
+                android:id="@+id/outfit_view_attributes_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Attributes:"
+                android:textFontWeight="800"
+                android:textSize="30sp"/>
+
+            <TextView
+                android:id="@+id/outfit_view_mood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mood: Hungry"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/outfit_view_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Temperature: Hellish"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/outfit_view_precipitation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Precipitation: Acid Rain"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/outfit_view_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Task: Black Angus"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/outfit_view_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Color: Ketchup"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

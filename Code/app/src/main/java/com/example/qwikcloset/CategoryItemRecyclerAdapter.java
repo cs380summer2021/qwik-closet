@@ -67,6 +67,16 @@ public class CategoryItemRecyclerAdapter extends RecyclerView.Adapter<CategoryIt
                     }
                 });
                 break;
+            case "OutFitGalleryView":
+                holder.itemImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, OutfitView.class);
+                        intent.putExtra("outfitId", categoryItemList.get(position).itemId.toString());
+                        context.startActivity(intent);
+                    }
+                });
+                break;
             default:
         }
     }

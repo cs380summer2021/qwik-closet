@@ -62,8 +62,9 @@ public class ClosetView extends AppCompatActivity {
         setMainCategoryRecycler(allCategoryList, "ClosetView");
 
         Button buttonNavigateToStart = (Button) findViewById(R.id.returnToMainMenu);
+        buttonNavigateToStart.setVisibility(View.GONE);
 
-        buttonNavigateToStart.setOnClickListener(new View.OnClickListener() {
+        /*buttonNavigateToStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("ClosetView", "onClick: Clicked returnToMainMenu");
@@ -71,7 +72,7 @@ public class ClosetView extends AppCompatActivity {
                 Intent intent = new Intent(ClosetView.this, MainMenuView.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     private void setMainCategoryRecycler(List<AllCategory> allCategoryList, String callState){
