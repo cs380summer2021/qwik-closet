@@ -274,7 +274,7 @@ public class BuildOutfitView extends AppCompatActivity {
             public void onClick(View v) {
                 clothingMood.setText("Mood: None Selected");
                 String s = (String) moodPrompter.getText();
-                s = s.split(" ", 2)[1];
+                try{s = s.split(" ", 2)[1];}catch(Exception e){}
                 moodPrompter.setText(s);
 
                 for(int i = 0; i < moods.size(); ++i){
@@ -302,7 +302,9 @@ public class BuildOutfitView extends AppCompatActivity {
             public void onClick(View v) {
                 clothingTemperature.setText("Temperature: None Selected");
                 String s = (String) temperaturePrompter.getText();
-                s = s.split(" ", 2)[1];
+                try{
+                    s = s.split(" ", 2)[1];
+                }catch (Exception e){}
                 temperaturePrompter.setText(s);
 
                 for(int i = 0; i < temperatures.size(); ++i){
@@ -376,7 +378,7 @@ public class BuildOutfitView extends AppCompatActivity {
             public void onClick(View v) {
                 clothingPrecipitation.setText("Precipitation: None Selected");
                 String s = (String) precipitationPrompter.getText();
-                s = s.split(" ", 2)[1];
+                try{s = s.split(" ", 2)[1];}catch(Exception e){}
                 precipitationPrompter.setText(s);
 
                 for(int i = 0; i < precipitations.size(); ++i){
@@ -404,7 +406,7 @@ public class BuildOutfitView extends AppCompatActivity {
             public void onClick(View v) {
                 clothingTask.setText("Task: None Selected");
                 String s = (String) taskPrompter.getText();
-                s = s.split(" ", 2)[1];
+                try{s = s.split(" ", 2)[1];}catch(Exception e){}
                 taskPrompter.setText(s);
 
                 for(int i = 0; i < tasks.size(); ++i){
@@ -432,7 +434,7 @@ public class BuildOutfitView extends AppCompatActivity {
             public void onClick(View v) {
                 clothingColor.setText("Color: None Selected");
                 String s = (String) colorPrompter.getText();
-                s = s.split(" ", 2)[1];
+                try{s = s.split(" ", 2)[1];}catch(Exception e){}
                 colorPrompter.setText(s);
 
                 for(int i = 0; i < colors.size(); ++i){
